@@ -1,0 +1,79 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
+          "version": "8.1.2"
+        }
+      },
+      {
+        "package": "Pure",
+        "repositoryURL": "https://github.com/devxoul/Pure",
+        "state": {
+          "branch": null,
+          "revision": "59ad1a492e97061527fd4896c3a6342afd9fa186",
+          "version": "1.1.4"
+        }
+      },
+      {
+        "package": "PureSwinject",
+        "repositoryURL": "https://github.com/devxoul/PureSwinject",
+        "state": {
+          "branch": null,
+          "revision": "05cd8087d31ab6ee840fd2480e1d1a2f53bc6447",
+          "version": "1.3.0"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "8cce6acd38f965f5baa3167b939f86500314022b",
+          "version": "3.1.2"
+        }
+      },
+      {
+        "package": "ReactorKit",
+        "repositoryURL": "https://github.com/ReactorKit/ReactorKit",
+        "state": {
+          "branch": null,
+          "revision": "a16e349e93d8b4c3e6c8fd210b43660dbd7016cc",
+          "version": "3.0.0"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "7c17a6ccca06b5c107cfa4284e634562ddaf5951",
+          "version": "6.2.0"
+        }
+      },
+      {
+        "package": "Swinject",
+        "repositoryURL": "https://github.com/Swinject/Swinject",
+        "state": {
+          "branch": null,
+          "revision": "8a76d2c74bafbb455763487cc6a08e91bad1f78b",
+          "version": "2.7.1"
+        }
+      },
+      {
+        "package": "SwinjectSafeAuto",
+        "repositoryURL": "https://github.com/devxoul/SwinjectSafeAuto",
+        "state": {
+          "branch": null,
+          "revision": "557e07905a9e80629bc7629d3826c297a4a72596",
+          "version": "1.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
