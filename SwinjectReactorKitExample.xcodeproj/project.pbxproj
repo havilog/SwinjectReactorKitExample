@@ -107,13 +107,9 @@
 		405C9D9026579CFA00C33809 /* SwinjectReactorKitExample */ = {
 			isa = PBXGroup;
 			children = (
-				405C9D9126579CFA00C33809 /* AppDelegate.swift */,
-				405C9D9326579CFA00C33809 /* SceneDelegate.swift */,
-				405C9D9526579CFA00C33809 /* ViewController.swift */,
-				405C9D9726579CFA00C33809 /* Main.storyboard */,
-				405C9D9A26579CFB00C33809 /* Assets.xcassets */,
-				405C9D9C26579CFB00C33809 /* LaunchScreen.storyboard */,
-				405C9D9F26579CFB00C33809 /* Info.plist */,
+				405C9DCD26579F0000C33809 /* Sources */,
+				405C9DCE26579F0800C33809 /* Resources */,
+				405C9DCF26579F0D00C33809 /* Supporting */,
 			);
 			path = SwinjectReactorKitExample;
 			sourceTree = "<group>";
@@ -134,6 +130,58 @@
 				405C9DB526579CFB00C33809 /* Info.plist */,
 			);
 			path = SwinjectReactorKitExampleUITests;
+			sourceTree = "<group>";
+		};
+		405C9DCD26579F0000C33809 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				405C9DD026579F3C00C33809 /* Application */,
+				405C9DD226579F5300C33809 /* Service */,
+				405C9DD126579F4B00C33809 /* Scene */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		405C9DCE26579F0800C33809 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				405C9D9A26579CFB00C33809 /* Assets.xcassets */,
+				405C9D9C26579CFB00C33809 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		405C9DCF26579F0D00C33809 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				405C9D9F26579CFB00C33809 /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		405C9DD026579F3C00C33809 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				405C9D9126579CFA00C33809 /* AppDelegate.swift */,
+				405C9D9326579CFA00C33809 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		405C9DD126579F4B00C33809 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				405C9D9526579CFA00C33809 /* ViewController.swift */,
+				405C9D9726579CFA00C33809 /* Main.storyboard */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		405C9DD226579F5300C33809 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
