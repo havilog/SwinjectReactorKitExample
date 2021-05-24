@@ -1,0 +1,56 @@
+PODS:
+  - Pure (1.1.4):
+    - Pure/Core (= 1.1.4)
+  - Pure/Core (1.1.4)
+  - PureSwinject (1.3.0):
+    - Pure (~> 1.1)
+    - Swinject (~> 2.6)
+    - SwinjectSafeAuto (~> 1.0)
+  - ReactorKit (2.0.1):
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.2)
+  - Swinject (2.7.1)
+  - SwinjectSafeAuto (1.0.1):
+    - Swinject (~> 2.6)
+    - WeakMapTable (~> 1.0)
+  - WeakMapTable (1.2.0)
+
+DEPENDENCIES:
+  - PureSwinject
+  - ReactorKit (~> 2.0.1)
+  - RxCocoa
+  - RxSwift
+  - Swinject (~> 2.7.1)
+  - SwinjectSafeAuto
+
+SPEC REPOS:
+  trunk:
+    - Pure
+    - PureSwinject
+    - ReactorKit
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - Swinject
+    - SwinjectSafeAuto
+    - WeakMapTable
+
+SPEC CHECKSUMS:
+  Pure: 82d6f4438672a41d21ea6fadd126e1466db001c5
+  PureSwinject: 0010f4069bd552cdc46a7be7d58481b22ced2fd3
+  ReactorKit: a63c5e11e0fd32d59d672e54178b0ed2876b764b
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SwinjectSafeAuto: 91266e1775ca6182f71b50e4f5e223e55a2b753c
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
+
+PODFILE CHECKSUM: 575ecb2d99f59f42cadc12d8fa51d4807b40349b
+
+COCOAPODS: 1.10.1

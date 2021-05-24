@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400B3E5F265B4A4300E2377B /* ViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B3E5E265B4A4300E2377B /* ViewReactor.swift */; };
+		400B3E62265B5E6F00E2377B /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B3E61265B5E6F00E2377B /* DIContainer.swift */; };
 		405C9D9226579CFA00C33809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9D9126579CFA00C33809 /* AppDelegate.swift */; };
 		405C9D9426579CFA00C33809 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9D9326579CFA00C33809 /* SceneDelegate.swift */; };
 		405C9D9626579CFA00C33809 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9D9526579CFA00C33809 /* ViewController.swift */; };
@@ -15,10 +17,11 @@
 		405C9D9E26579CFB00C33809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405C9D9C26579CFB00C33809 /* LaunchScreen.storyboard */; };
 		405C9DA926579CFB00C33809 /* SwinjectReactorKitExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9DA826579CFB00C33809 /* SwinjectReactorKitExampleTests.swift */; };
 		405C9DB426579CFB00C33809 /* SwinjectReactorKitExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9DB326579CFB00C33809 /* SwinjectReactorKitExampleUITests.swift */; };
-		405C9DC326579E1D00C33809 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 405C9DC226579E1D00C33809 /* Swinject */; };
-		405C9DC626579E4C00C33809 /* PureSwinject in Frameworks */ = {isa = PBXBuildFile; productRef = 405C9DC526579E4C00C33809 /* PureSwinject */; };
-		405C9DC926579E5300C33809 /* SwinjectSafeAuto in Frameworks */ = {isa = PBXBuildFile; productRef = 405C9DC826579E5300C33809 /* SwinjectSafeAuto */; };
-		405C9DCC26579E7400C33809 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 405C9DCB26579E7400C33809 /* ReactorKit */; };
+		405C9DD42657A1C300C33809 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9DD32657A1C300C33809 /* NetworkService.swift */; };
+		405C9DD62657A1F300C33809 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9DD52657A1F300C33809 /* PurchaseService.swift */; };
+		442755C8083629242D5CD233 /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB533760722B25B1C5FAB63D /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework */; };
+		4DF17FC3D0E97E996DD412E8 /* Pods_SwinjectReactorKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */; };
+		8B7388F7B7A3919E28F190F4 /* Pods_SwinjectReactorKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E66A81AE6C7E18DB1A44B5 /* Pods_SwinjectReactorKitExampleTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0183C99096282D8C5194C691 /* Pods-SwinjectReactorKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample.release.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample/Pods-SwinjectReactorKitExample.release.xcconfig"; sourceTree = "<group>"; };
+		032743274D40F1F903C6E719 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		10E66A81AE6C7E18DB1A44B5 /* Pods_SwinjectReactorKitExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwinjectReactorKitExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22A27F57CEDCD078A2D08E1F /* Pods-SwinjectReactorKitExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3040F9A331C9E614DF159B49 /* Pods-SwinjectReactorKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample.debug.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample/Pods-SwinjectReactorKitExample.debug.xcconfig"; sourceTree = "<group>"; };
+		400B3E5E265B4A4300E2377B /* ViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReactor.swift; sourceTree = "<group>"; };
+		400B3E61265B5E6F00E2377B /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		405C9D8E26579CFA00C33809 /* SwinjectReactorKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwinjectReactorKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		405C9D9126579CFA00C33809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		405C9D9326579CFA00C33809 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +63,12 @@
 		405C9DAF26579CFB00C33809 /* SwinjectReactorKitExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwinjectReactorKitExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		405C9DB326579CFB00C33809 /* SwinjectReactorKitExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectReactorKitExampleUITests.swift; sourceTree = "<group>"; };
 		405C9DB526579CFB00C33809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		405C9DD32657A1C300C33809 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		405C9DD52657A1F300C33809 /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
+		5D4C3BDE8DCED8D44BC70862 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A4ED93C563C3F5F6B76C65B6 /* Pods-SwinjectReactorKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwinjectReactorKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB533760722B25B1C5FAB63D /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				405C9DC326579E1D00C33809 /* Swinject in Frameworks */,
-				405C9DC626579E4C00C33809 /* PureSwinject in Frameworks */,
-				405C9DCC26579E7400C33809 /* ReactorKit in Frameworks */,
-				405C9DC926579E5300C33809 /* SwinjectSafeAuto in Frameworks */,
+				4DF17FC3D0E97E996DD412E8 /* Pods_SwinjectReactorKitExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7388F7B7A3919E28F190F4 /* Pods_SwinjectReactorKitExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +92,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442755C8083629242D5CD233 /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400B3E60265B5E5800E2377B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				400B3E61265B5E6F00E2377B /* DIContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		401463A3497A8DCC7EF0F1DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */,
+				FB533760722B25B1C5FAB63D /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework */,
+				10E66A81AE6C7E18DB1A44B5 /* Pods_SwinjectReactorKitExampleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		405C9D8526579CFA00C33809 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +124,8 @@
 				405C9DA726579CFB00C33809 /* SwinjectReactorKitExampleTests */,
 				405C9DB226579CFB00C33809 /* SwinjectReactorKitExampleUITests */,
 				405C9D8F26579CFA00C33809 /* Products */,
+				566CBACC59D3813C28F09A1F /* Pods */,
+				401463A3497A8DCC7EF0F1DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +172,7 @@
 			children = (
 				405C9DD026579F3C00C33809 /* Application */,
 				405C9DD226579F5300C33809 /* Service */,
+				400B3E60265B5E5800E2377B /* DI */,
 				405C9DD126579F4B00C33809 /* Scene */,
 			);
 			path = Sources;
@@ -171,8 +207,9 @@
 		405C9DD126579F4B00C33809 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				405C9D9526579CFA00C33809 /* ViewController.swift */,
 				405C9D9726579CFA00C33809 /* Main.storyboard */,
+				405C9D9526579CFA00C33809 /* ViewController.swift */,
+				400B3E5E265B4A4300E2377B /* ViewReactor.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -180,8 +217,23 @@
 		405C9DD226579F5300C33809 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				405C9DD32657A1C300C33809 /* NetworkService.swift */,
+				405C9DD52657A1F300C33809 /* PurchaseService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		566CBACC59D3813C28F09A1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3040F9A331C9E614DF159B49 /* Pods-SwinjectReactorKitExample.debug.xcconfig */,
+				0183C99096282D8C5194C691 /* Pods-SwinjectReactorKitExample.release.xcconfig */,
+				5D4C3BDE8DCED8D44BC70862 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig */,
+				032743274D40F1F903C6E719 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.release.xcconfig */,
+				22A27F57CEDCD078A2D08E1F /* Pods-SwinjectReactorKitExampleTests.debug.xcconfig */,
+				A4ED93C563C3F5F6B76C65B6 /* Pods-SwinjectReactorKitExampleTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,21 +243,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 405C9DB826579CFB00C33809 /* Build configuration list for PBXNativeTarget "SwinjectReactorKitExample" */;
 			buildPhases = (
+				26CFBF9A0D051FEA97A03B70 /* [CP] Check Pods Manifest.lock */,
 				405C9D8A26579CFA00C33809 /* Sources */,
 				405C9D8B26579CFA00C33809 /* Frameworks */,
 				405C9D8C26579CFA00C33809 /* Resources */,
+				C677D22351257520882BF39B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SwinjectReactorKitExample;
-			packageProductDependencies = (
-				405C9DC226579E1D00C33809 /* Swinject */,
-				405C9DC526579E4C00C33809 /* PureSwinject */,
-				405C9DC826579E5300C33809 /* SwinjectSafeAuto */,
-				405C9DCB26579E7400C33809 /* ReactorKit */,
-			);
 			productName = SwinjectReactorKitExample;
 			productReference = 405C9D8E26579CFA00C33809 /* SwinjectReactorKitExample.app */;
 			productType = "com.apple.product-type.application";
@@ -214,6 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 405C9DBB26579CFB00C33809 /* Build configuration list for PBXNativeTarget "SwinjectReactorKitExampleTests" */;
 			buildPhases = (
+				528F5A3543F41F5495113C1D /* [CP] Check Pods Manifest.lock */,
 				405C9DA026579CFB00C33809 /* Sources */,
 				405C9DA126579CFB00C33809 /* Frameworks */,
 				405C9DA226579CFB00C33809 /* Resources */,
@@ -232,9 +281,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 405C9DBE26579CFB00C33809 /* Build configuration list for PBXNativeTarget "SwinjectReactorKitExampleUITests" */;
 			buildPhases = (
+				5A1201F89570CB38EF8F09D2 /* [CP] Check Pods Manifest.lock */,
 				405C9DAB26579CFB00C33809 /* Sources */,
 				405C9DAC26579CFB00C33809 /* Frameworks */,
 				405C9DAD26579CFB00C33809 /* Resources */,
+				285F66380BA11A9A130241ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,12 +328,6 @@
 				Base,
 			);
 			mainGroup = 405C9D8526579CFA00C33809;
-			packageReferences = (
-				405C9DC126579E1D00C33809 /* XCRemoteSwiftPackageReference "Swinject" */,
-				405C9DC426579E4C00C33809 /* XCRemoteSwiftPackageReference "PureSwinject" */,
-				405C9DC726579E5300C33809 /* XCRemoteSwiftPackageReference "SwinjectSafeAuto" */,
-				405C9DCA26579E7400C33809 /* XCRemoteSwiftPackageReference "ReactorKit" */,
-			);
 			productRefGroup = 405C9D8F26579CFA00C33809 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -321,13 +366,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26CFBF9A0D051FEA97A03B70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwinjectReactorKitExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		285F66380BA11A9A130241ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		528F5A3543F41F5495113C1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwinjectReactorKitExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A1201F89570CB38EF8F09D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C677D22351257520882BF39B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExample/Pods-SwinjectReactorKitExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExample/Pods-SwinjectReactorKitExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExample/Pods-SwinjectReactorKitExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		405C9D8A26579CFA00C33809 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				400B3E62265B5E6F00E2377B /* DIContainer.swift in Sources */,
 				405C9D9626579CFA00C33809 /* ViewController.swift in Sources */,
+				400B3E5F265B4A4300E2377B /* ViewReactor.swift in Sources */,
+				405C9DD42657A1C300C33809 /* NetworkService.swift in Sources */,
 				405C9D9226579CFA00C33809 /* AppDelegate.swift in Sources */,
+				405C9DD62657A1F300C33809 /* PurchaseService.swift in Sources */,
 				405C9D9426579CFA00C33809 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,12 +653,13 @@
 		};
 		405C9DB926579CFB00C33809 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3040F9A331C9E614DF159B49 /* Pods-SwinjectReactorKitExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P25P5JJVFC;
-				INFOPLIST_FILE = SwinjectReactorKitExample/Info.plist;
+				INFOPLIST_FILE = SwinjectReactorKitExample/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,12 +673,13 @@
 		};
 		405C9DBA26579CFB00C33809 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0183C99096282D8C5194C691 /* Pods-SwinjectReactorKitExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P25P5JJVFC;
-				INFOPLIST_FILE = SwinjectReactorKitExample/Info.plist;
+				INFOPLIST_FILE = SwinjectReactorKitExample/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,6 +693,7 @@
 		};
 		405C9DBC26579CFB00C33809 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22A27F57CEDCD078A2D08E1F /* Pods-SwinjectReactorKitExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -561,6 +716,7 @@
 		};
 		405C9DBD26579CFB00C33809 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4ED93C563C3F5F6B76C65B6 /* Pods-SwinjectReactorKitExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -583,6 +739,7 @@
 		};
 		405C9DBF26579CFB00C33809 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D4C3BDE8DCED8D44BC70862 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -603,6 +760,7 @@
 		};
 		405C9DC026579CFB00C33809 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 032743274D40F1F903C6E719 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -661,64 +819,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		405C9DC126579E1D00C33809 /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.1;
-			};
-		};
-		405C9DC426579E4C00C33809 /* XCRemoteSwiftPackageReference "PureSwinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/PureSwinject";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
-			};
-		};
-		405C9DC726579E5300C33809 /* XCRemoteSwiftPackageReference "SwinjectSafeAuto" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/SwinjectSafeAuto";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		405C9DCA26579E7400C33809 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		405C9DC226579E1D00C33809 /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 405C9DC126579E1D00C33809 /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-		405C9DC526579E4C00C33809 /* PureSwinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 405C9DC426579E4C00C33809 /* XCRemoteSwiftPackageReference "PureSwinject" */;
-			productName = PureSwinject;
-		};
-		405C9DC826579E5300C33809 /* SwinjectSafeAuto */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 405C9DC726579E5300C33809 /* XCRemoteSwiftPackageReference "SwinjectSafeAuto" */;
-			productName = SwinjectSafeAuto;
-		};
-		405C9DCB26579E7400C33809 /* ReactorKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 405C9DCA26579E7400C33809 /* XCRemoteSwiftPackageReference "ReactorKit" */;
-			productName = ReactorKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 405C9D8626579CFA00C33809 /* Project object */;
 }
