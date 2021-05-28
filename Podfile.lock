@@ -14,10 +14,12 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.2)
+  - SnapKit (5.0.1)
   - Swinject (2.7.1)
   - SwinjectSafeAuto (1.0.1):
     - Swinject (~> 2.6)
     - WeakMapTable (~> 1.0)
+  - Then (2.7.0)
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
@@ -25,8 +27,10 @@ DEPENDENCIES:
   - ReactorKit (~> 2.0.1)
   - RxCocoa
   - RxSwift
+  - SnapKit
   - Swinject (~> 2.7.1)
   - SwinjectSafeAuto
+  - Then
 
 SPEC REPOS:
   trunk:
@@ -36,8 +40,10 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SnapKit
     - Swinject
     - SwinjectSafeAuto
+    - Then
     - WeakMapTable
 
 SPEC CHECKSUMS:
@@ -47,10 +53,12 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectSafeAuto: 91266e1775ca6182f71b50e4f5e223e55a2b753c
+  Then: acfe0be7e98221c6204e12f8161459606d5d822d
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 575ecb2d99f59f42cadc12d8fa51d4807b40349b
+PODFILE CHECKSUM: fecf92fa8dc22afc7d354055a9b7f7b2f2f2174b
 
 COCOAPODS: 1.10.1

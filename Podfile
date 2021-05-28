@@ -11,6 +11,8 @@ target 'SwinjectReactorKitExample' do
   pod 'PureSwinject'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SnapKit'
+  pod 'Then'
 
   # Pods for SwinjectReactorKitExample
 

@@ -38,7 +38,7 @@ final class DIContainer {
     }
     
     func resolve<T>() -> T {
-        guard let dependency = container.resolve(PurchaseServiceType.self) as? T else {
+        guard let dependency = container.resolve(T.self) else {
             fatalError("PurchaseServiceType Error")
         }
         
