@@ -15,10 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let vc = storyboard.instantiateViewController(identifier: "ViewController") { coder in
-            return ViewController(coder: coder, reactor: ViewReactor.init())
-        }
+        let vc = MainSplitViewController()
         
         window.rootViewController = vc
         window.makeKeyAndVisible()

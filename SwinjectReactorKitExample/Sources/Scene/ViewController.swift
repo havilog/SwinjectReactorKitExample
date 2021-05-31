@@ -10,13 +10,12 @@ import RxSwift
 import RxCocoa
 import ReactorKit
 
-class ViewController: UIViewController, StoryboardView {
-    @IBOutlet weak var testButton: UIButton!
+final class ViewController: UIViewController, StoryboardView {
     
     var disposeBag: DisposeBag = .init()
     
-    init?(coder: NSCoder, reactor: ViewReactor) {
-        super.init(coder: coder)
+    init(reactor: ViewReactor) {
+        super.init(nibName: nil, bundle: nil)
         self.reactor = reactor
     }
     
@@ -26,20 +25,22 @@ class ViewController: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .red
     }
 
     func bind(reactor: ViewReactor) {
-        testButton.rx.tap
-            .map { Reactor.Action.buttonDidTapped }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        reactor.state
-            .map(\.purchaseResult)
-            .subscribe(onNext: {
-                print($0)
-            })
-            .disposed(by: disposeBag)
+//        testButton.rx.tap
+//            .map { Reactor.Action.buttonDidTapped }
+//            .bind(to: reactor.action)
+//            .disposed(by: disposeBag)
+//        
+//        reactor.state
+//            .map(\.purchaseResult)
+//            .subscribe(onNext: {
+//                print($0)
+//            })
+//            .disposed(by: disposeBag)
     }
 }
 
