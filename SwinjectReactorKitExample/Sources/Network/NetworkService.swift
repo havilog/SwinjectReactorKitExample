@@ -11,7 +11,7 @@ protocol NetworkServiceType {
     func doSomeAPICall()
 }
 
-final class NetworkService: NetworkServiceType {
+final class NetworkService: NetworkServiceType {    
     func doSomeAPICall() {
         print(#function)
     }

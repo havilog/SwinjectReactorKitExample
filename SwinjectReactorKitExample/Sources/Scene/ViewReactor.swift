@@ -18,17 +18,19 @@ final class ViewReactor: Reactor {
     }
     
     enum Mutation {
-        case setPurchaseResult
+        case setSearchResult(User.Item)
     }
     
     struct State {
-        var purchaseResult: Bool = false
+        var searchResult: String = ""
     }
     
     // MARK: Properties
     
-    @Dependency var purchaseService: PurchaseServiceType
+    @Dependency 
+    private var purchaseService: SearchServiceType
     let initialState: State
+    let errorResult: PublishSubject<Error> = .init()
     
     // MARK: Initializers
     
@@ -43,8 +45,15 @@ extension ViewReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .buttonDidTapped:
-            purchaseService.loadProductList(identifiers: [])
-            return .just(.setPurchaseResult)
+            return purchaseService.searchUser(id: "hansangjin96")
+                .compactMap { $0 }
+                .catchError { [weak self] error in
+                    self?.errorResult.onNext(error)
+                    return .empty()
+                }
+                .asObservable()
+                .map { .setSearchResult($0) }
+                
         }
     }
 }
@@ -55,14 +64,9 @@ extension ViewReactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setPurchaseResult:
-            newState.purchaseResult = true
+        case .setSearchResult(let result):
+            newState.searchResult = result.login
         }
         return newState
     }
 }
-
-// MARK: Method
-
-private extension ViewReactor {
-} 

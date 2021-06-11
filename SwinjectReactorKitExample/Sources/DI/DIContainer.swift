@@ -15,23 +15,27 @@ final class DIContainer {
     // MARK: Singleton
     
     static let shared: DIContainer = .init()
-    private init() { configureContainerSwinjectSafeAuto() }
+    private init() { 
+//        configureContainerSwinjectSafeAuto() 
+        configureContainer()
+        print(#file.split(separator: "/").last!, #function)
+    }
     
     private let container: Container = .init()
     
     private func configureContainer() {
         container.register(NetworkServiceType.self) { resolver in NetworkService() }
-        
-        container.register(PurchaseServiceType.self) { resolver in
-            PurchaseService(dependency: resolver.resolve(NetworkServiceType.self)!)
-        }
+        container.register(SearchServiceType.self) { resolver in SearchService() }
+//        container.register(PurchaseServiceType.self) { resolver in
+//            PurchaseService(dependency: resolver.resolve(NetworkServiceType.self)!)
+//        }
     }
     
     private func configureContainerSwinjectSafeAuto() {
-        container.autoregister(NetworkServiceType.self, initializer: NetworkService.init)
-        container.autoregister(PurchaseServiceType.self, initializer: PurchaseService.init)
-        
-        try! container.verify()
+//        container.autoregister(NetworkServiceType.self, initializer: NetworkService.init)
+//        container.autoregister(PurchaseServiceType.self, initializer: PurchaseService.init)
+//        
+//        try! container.verify()
     }
     
     private func configureContainerPureSwinject() {
@@ -39,7 +43,7 @@ final class DIContainer {
     
     func resolve<T>() -> T {
         guard let dependency = container.resolve(T.self) else {
-            fatalError("PurchaseServiceType Error")
+            fatalError("\(T.self) Error")
         }
         
         print(T.self, "resolved")

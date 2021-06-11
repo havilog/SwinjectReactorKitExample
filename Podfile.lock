@@ -1,4 +1,10 @@
 PODS:
+  - Alamofire (5.4.3)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
   - Pure (1.1.4):
     - Pure/Core (= 1.1.4)
   - Pure/Core (1.1.4)
@@ -6,8 +12,9 @@ PODS:
     - Pure (~> 1.1)
     - Swinject (~> 2.6)
     - SwinjectSafeAuto (~> 1.0)
-  - ReactorKit (2.0.1):
+  - ReactorKit (2.1.1):
     - RxSwift (~> 5.0)
+    - WeakMapTable (~> 1.1)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -23,17 +30,20 @@ PODS:
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
+  - Moya/RxSwift
   - PureSwinject
-  - ReactorKit (~> 2.0.1)
+  - ReactorKit
   - RxCocoa
   - RxSwift
   - SnapKit
-  - Swinject (~> 2.7.1)
+  - Swinject
   - SwinjectSafeAuto
   - Then
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Moya
     - Pure
     - PureSwinject
     - ReactorKit
@@ -47,9 +57,11 @@ SPEC REPOS:
     - WeakMapTable
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Pure: 82d6f4438672a41d21ea6fadd126e1466db001c5
   PureSwinject: 0010f4069bd552cdc46a7be7d58481b22ced2fd3
-  ReactorKit: a63c5e11e0fd32d59d672e54178b0ed2876b764b
+  ReactorKit: 6d894a20c3d508344320901cd8e386fde92df4b6
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
@@ -59,6 +71,6 @@ SPEC CHECKSUMS:
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: fecf92fa8dc22afc7d354055a9b7f7b2f2f2174b
+PODFILE CHECKSUM: 3c8f5d2a57bc33da12348fe3e123c15afce31f1d
 
 COCOAPODS: 1.10.1
