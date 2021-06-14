@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import Moya
+import Swinject
 
 struct SearchUserResult {
     let nickname: String?
@@ -20,17 +21,10 @@ protocol SearchServiceType {
 }
 
 final class SearchService: SearchServiceType {
+    @Dependency private var provider: MoyaProvider<NetworkAPI>
+    @Dependency private var imageService: ImageServiceType
     
-    private let provider: MoyaProvider<NetworkAPI>
-    private let imageService: ImageServiceType
-    
-    init(
-        provider: MoyaProvider<NetworkAPI>,
-        imageService: ImageServiceType
-    ) {
-        self.provider = provider
-        self.imageService = imageService
-    }
+    init() {}
     
     func searchUser(id: String) -> Observable<SearchUserResult> {
         return provider.rx.request(.searchUser(query: id))

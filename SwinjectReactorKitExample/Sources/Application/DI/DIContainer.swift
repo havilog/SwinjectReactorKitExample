@@ -25,18 +25,30 @@ final class DIContainer {
     private let container: Container = .init()
     
     private func configureContainer() {
-        container.register(MoyaProvider<NetworkAPI>.self) { resolver in MoyaProvider<NetworkAPI>() }
-        container.register(SearchServiceType.self) { resolver in SearchService(provider: .init(), imageService: ImageService()) }
-//        container.register(PurchaseServiceType.self) { resolver in
-//            PurchaseService(dependency: resolver.resolve(NetworkServiceType.self)!)
-//        }
+        container.register(MoyaProvider<NetworkAPI>.self) { resolver in
+            MoyaProvider<NetworkAPI>()
+        }
+        
+        container.register(URLSessionType.self) { resolver in
+            URLSession.init(configuration: .default)
+        }
+        
+        container.register(ImageServiceType.self) { resolver in
+            ImageService.init()
+        }
+        
+        container.register(SearchServiceType.self) { resolver in
+            SearchService.init()
+        }
     }
     
     private func configureContainerSwinjectSafeAuto() {
-//        container.autoregister(NetworkServiceType.self, initializer: NetworkService.init)
-//        container.autoregister(PurchaseServiceType.self, initializer: PurchaseService.init)
-//        
-//        try! container.verify()
+        
+        container.autoregister(MoyaProvider<NetworkAPI>.self, initializer: MoyaProvider<NetworkAPI>.init)
+        container.autoregister(URLSessionType.self, initializer: URLSession.init)
+        container.autoregister(ImageServiceType.self, initializer: ImageService.init)
+        container.autoregister(SearchServiceType.self, initializer: SearchService.init)
+        try! container.verify()
     }
     
     private func configureContainerPureSwinject() {

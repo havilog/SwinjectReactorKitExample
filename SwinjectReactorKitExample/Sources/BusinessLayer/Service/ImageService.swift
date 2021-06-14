@@ -29,12 +29,12 @@ protocol ImageServiceType {
 
 final class ImageService: ImageServiceType {
     
-    private var urlSession: URLSessionType
+    
+    
+    @Dependency private var urlSession: URLSessionType
     private var task: URLSessionTask?
     
-    init(urlSession: URLSessionType = URLSession.init(configuration: .default)) {
-        self.urlSession = urlSession
-    }
+    init() {}
     
     func fetchImage(with url: URL?) -> Single<Data?> {
         return Single<Data?>.create { [weak self] single in
@@ -51,11 +51,11 @@ final class ImageService: ImageServiceType {
             }
             
             // cache에서 검사해서 있으면 리턴
-//            if let cachedImage = CachStorage.shared.cachedImage.object(forKey: url as NSURL) {
-//                print("cached Image returned")
-//                single(.success(cachedImage as Data))
-//                return Disposables.create()
-//            }
+            if let cachedImage = CachStorage.shared.cachedImage.object(forKey: url as NSURL) {
+                print("cached Image returned")
+                single(.success(cachedImage as Data))
+                return Disposables.create()
+            }
             
             // cache가 없으면 Network통신
             let request = URLRequest(url: url)
