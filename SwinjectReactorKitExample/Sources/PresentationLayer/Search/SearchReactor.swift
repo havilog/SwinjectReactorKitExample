@@ -6,10 +6,9 @@
 //
 
 import RxSwift
-import Swinject
 import ReactorKit
 
-final class ViewReactor: Reactor {
+final class SearchReactor: Reactor {
     
     // MARK: Events
     
@@ -23,7 +22,7 @@ final class ViewReactor: Reactor {
     
     struct State {
         var searchResult: String = "before button pressed"
-        var searchAvartarImageResult: UIImage? // default image
+        var searchAvartarImageData: Data?
         var searchIDResult: String = "id ?"
     }
     
@@ -42,7 +41,7 @@ final class ViewReactor: Reactor {
 
 // MARK: Mutation
 
-extension ViewReactor {
+extension SearchReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .searchUser(id):
@@ -61,13 +60,13 @@ extension ViewReactor {
 
 // MARK: Reduce
 
-extension ViewReactor {
+extension SearchReactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
         case let .setSearchResult(result):
             newState.searchResult = result.nickname ?? "없음"
-            newState.searchAvartarImageResult = try? UIImage(data: Data(contentsOf: result.url!))
+            newState.searchAvartarImageData = result.urlData
             newState.searchIDResult = String(result.id ?? 0)
         }
         return newState

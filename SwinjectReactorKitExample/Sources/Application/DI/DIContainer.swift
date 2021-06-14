@@ -25,9 +25,8 @@ final class DIContainer {
     private let container: Container = .init()
     
     private func configureContainer() {
-        container.register(NetworkServiceType.self) { resolver in NetworkService() }
         container.register(MoyaProvider<NetworkAPI>.self) { resolver in MoyaProvider<NetworkAPI>() }
-        container.register(SearchServiceType.self) { resolver in SearchService(provider: .init()) }
+        container.register(SearchServiceType.self) { resolver in SearchService(provider: .init(), imageService: ImageService(provider: .init())) }
 //        container.register(PurchaseServiceType.self) { resolver in
 //            PurchaseService(dependency: resolver.resolve(NetworkServiceType.self)!)
 //        }

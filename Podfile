@@ -7,14 +7,23 @@ target 'SwinjectReactorKitExample' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  # DI
   pod 'Swinject'
-  pod 'ReactorKit'
   pod 'SwinjectSafeAuto'
   pod 'PureSwinject'
+  
+  # Architecture
+  pod 'ReactorKit'
+  
+  # Reactive
   pod 'RxSwift'
   pod 'RxCocoa'
+  
+  # Util
   pod 'SnapKit'
   pod 'Then'
+  
+  # Network
   pod 'Moya/RxSwift'
 
   # Pods for SwinjectReactorKitExample

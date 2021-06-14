@@ -11,7 +11,7 @@ import SnapKit
 import RxCocoa
 import ReactorKit
 
-final class ViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
     var disposeBag: DisposeBag = .init()
     
@@ -24,10 +24,15 @@ final class ViewController: UIViewController {
     }
     
     private let resultText: UILabel = .init()
-    private let resultImage: UIImageView = .init()
+    
+    private let resultImageView: UIImageView = .init().then {
+        $0.image = UIImage(named: "empty")
+        $0.contentMode = .scaleAspectFit
+    }
+    
     private let resultIDText: UILabel = .init()
     
-    init(reactor: ViewReactor) {
+    init(reactor: SearchReactor) {
         super.init(nibName: nil, bundle: nil)
         self.reactor = reactor
     }
@@ -42,7 +47,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension SearchViewController {
     private func setUpUI() {
         view.backgroundColor = .white
         
@@ -65,26 +70,26 @@ extension ViewController {
             $0.centerX.equalToSuperview()
         }
         
-        self.view.addSubview(self.resultImage)
-        self.resultImage.snp.makeConstraints { 
+        self.view.addSubview(self.resultImageView)
+        self.resultImageView.snp.makeConstraints { 
             $0.top.equalTo(self.resultText.snp.bottom).offset(20)
-            $0.size.equalTo(100)
+            $0.size.equalTo(200)
             $0.centerX.equalToSuperview()
         }
         
         self.view.addSubview(self.resultIDText)
         self.resultIDText.snp.makeConstraints { 
-            $0.top.equalTo(self.resultImage.snp.bottom).offset(20)
+            $0.top.equalTo(self.resultImageView.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
         }
     }
 }
 
-extension ViewController: View {
-    func bind(reactor: ViewReactor) {
+extension SearchViewController: View {
+    func bind(reactor: SearchReactor) {
         startButton.rx.tap
             .map { [weak self] in
-//                guard let self = self else { return .none }
+//                guard let self = self else { return }
                 return Reactor.Action.searchUser(id: self?.searchIDTextField.text ?? "")
             }
             .bind(to: reactor.action)
@@ -96,8 +101,9 @@ extension ViewController: View {
             .disposed(by: disposeBag)
         
         reactor.state
-            .map(\.searchAvartarImageResult)
-            .bind(to: resultImage.rx.image)
+            .map(\.searchAvartarImageData)
+            .map { $0 == nil ? UIImage(named: "empty2") : UIImage(data: $0!) }
+            .bind(to: resultImageView.rx.image)
             .disposed(by: disposeBag)
         
         reactor.state

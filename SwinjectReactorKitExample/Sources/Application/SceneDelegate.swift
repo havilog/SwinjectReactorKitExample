@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
-        let vc = ViewController(reactor: .init())
+        let vc = SearchViewController(reactor: .init())
         
         window.rootViewController = vc
         window.makeKeyAndVisible()
