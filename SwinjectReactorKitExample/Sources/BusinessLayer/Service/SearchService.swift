@@ -50,6 +50,11 @@ final class SearchService: SearchServiceType {
                 guard let self = self else { return .empty() }
                 
                 return self.imageService.fetchImage(with: result.url)
+                    .asObservable()
+                    .catchError { error -> Observable<Data?> in
+                        print("Error catched in searchService")
+                        return .just(nil)
+                    }
                     .map { data -> SearchUserResult in
                         return SearchUserResult(nickname: result.nickname, urlData: data, id: result.id)
                     }

@@ -21,14 +21,15 @@ final class SearchReactor: Reactor {
     }
     
     struct State {
-        var searchResult: String = "before button pressed"
-        var searchAvartarImageData: Data?
-        var searchIDResult: String = "id ?"
+        var searchResult: String = "before button pressed nickname"
+        var searchAvartarImageData: Data? 
+        var searchIDResult: String = "before button pressed id"
     }
     
     // MARK: Properties
     
     @Dependency private var searchService: SearchServiceType
+    private let image = ImageService()
     let initialState: State
     let errorResult: PublishSubject<Error> = .init()
     
@@ -45,15 +46,7 @@ extension SearchReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .searchUser(id):
-            return searchService.searchUser(id: id) // returns Single<T?>
-                .catchError { [weak self] error in
-                    print("Error occured!!!!!")
-                    self?.errorResult.onNext(error)
-                    return .empty()
-                }
-                .do(onNext: { print($0) })
-                .map { .setSearchResult($0) }
-                
+            return self.searchUser(with: id)
         }
     }
 }
@@ -72,3 +65,35 @@ extension SearchReactor {
         return newState
     }
 }
+
+// MARK: Private Method
+
+private extension SearchReactor {
+    func searchUser(with id: String) -> Observable<Mutation> {
+        return searchService.searchUser(id: id)
+            .catchError { [weak self] error in
+                print("Error searchService catched!!!!!")
+                self?.errorResult.onNext(error)
+                return .empty()
+            }
+            .do(onNext: { print($0) })
+            .map { .setSearchResult($0) }
+        
+        
+//        return image.fetchImage(with: URL(string: "https://blog.kakaocdn.net/dn/daPJMD/btqCinzhh9J/akDK6BMiG3QKH3XWXwobx1/img.jpg")!)
+//            .asObservable()
+//            .catchError { [weak self] error in
+//                print("Error catched!!!!!")
+//                self?.errorResult.onNext(error)
+//                return .empty()
+//            }
+////            .do(onNext: { print($0) })
+//            .map { .setSearchResult(SearchUserResult(nickname: "test", urlData: $0, id: 0)) }
+    }
+}
+
+
+/*
+ 3. DI 다시 계층구조 설정
+ 4. 테스팅
+ */

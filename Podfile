@@ -23,6 +23,9 @@ target 'SwinjectReactorKitExample' do
   pod 'SnapKit'
   pod 'Then'
   
+  # UI
+  pod 'lottie-ios'
+  
   # Network
   pod 'Moya/RxSwift'
 

@@ -10,53 +10,106 @@ import Foundation
 import Moya
 import RxSwift
 
+// MARK: URLSession Mock
+
+protocol URLSessionType {
+    func dataTask(
+        with request: URLRequest, 
+        completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
+    ) -> URLSessionDataTask
+}
+
+extension URLSession: URLSessionType {}
+
+// MARK: ImageService
+
 protocol ImageServiceType {
-    func fetchImage(with url: URL?) -> Observable<Data?>
+    func fetchImage(with url: URL?) -> Single<Data?>
 }
 
 final class ImageService: ImageServiceType {
-    private let provider: MoyaProvider<NetworkAPI>
     
-    init(provider: MoyaProvider<NetworkAPI>) {
-        self.provider = provider
+    private var urlSession: URLSessionType
+    private var task: URLSessionTask?
+    
+    init(urlSession: URLSessionType = URLSession.init(configuration: .default)) {
+        self.urlSession = urlSession
     }
     
-    func fetchImage(with url: URL?) -> Observable<Data?> {
-        if let url = url {
-            let data = try? Data(contentsOf: url)
-            return .just(data)
-        }
-        
-        return .just(nil)
-    }
-    
-    /// Retrieves (or creates should it be necessary) a temporary image's local URL on cache directory for testing purposes
-    /// - Parameter name: image name retrieved from asset catalog
-    /// - Parameter imageExtension: Image type. Defaults to `.jpg` kind
-    /// - Returns: Resulting URL for named image
-    func createLocalUrl(forImageNamed name: String, imageExtension: String = "jpg") -> URL? {
-        let fileManager = FileManager.default
-
-        guard let cacheDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else {
-            print("Unable to access cache directory")
-            return nil
-        }
-
-        let url = cacheDirectory.appendingPathComponent("\(name).\(imageExtension)")
-
-        // If file doesn't exist, creates it
-        guard fileManager.fileExists(atPath: url.path) else {
-            // Bundle(for: Self.self) is used here instead of .main in order to work on test target as well
-            guard let image = UIImage(named: name, in: Bundle(for: Self.self), with: nil),
-                  let data = image.jpegData(compressionQuality: 1) else {
-                print("Impossible to convert to jpg data")
-                return nil
+    func fetchImage(with url: URL?) -> Single<Data?> {
+        return Single<Data?>.create { [weak self] single in
+            guard let self = self else { 
+                print("self error")
+                single(.error(ImageDownloadError.selfError))
+                return Disposables.create() 
             }
-
-            fileManager.createFile(atPath: url.path, contents: data, attributes: nil)
-            return url
+            
+            guard let url = url else { 
+                print("url error")
+                single(.error(ImageDownloadError.urlError))
+                return Disposables.create() 
+            }
+            
+            // cache에서 검사해서 있으면 리턴
+//            if let cachedImage = CachStorage.shared.cachedImage.object(forKey: url as NSURL) {
+//                print("cached Image returned")
+//                single(.success(cachedImage as Data))
+//                return Disposables.create()
+//            }
+            
+            // cache가 없으면 Network통신
+            let request = URLRequest(url: url)
+            
+            // before task
+            self.task?.cancel()
+            
+            // current task
+            let task = self.urlSession.dataTask(with: request) { data, response, error in
+                guard error == nil else { 
+                    print("ImageDownloadError.networkError", error!.localizedDescription)
+                    single(.error(error!))
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse else {
+                    print("ImageDownloadError.responseError")
+                    single(.error(ImageDownloadError.responseError))
+                    return
+                }
+                
+                guard 200..<300 ~= response.statusCode else {
+                    print("ImageDownloadError.statusError")
+                    single(.error(ImageDownloadError.statusError))
+                    return
+                }
+                
+                guard data != nil else {
+                    print("ImageDownloadError.dataError")
+                    single(.error(ImageDownloadError.dataError))
+                    return
+                }
+                
+                single(.success(data!))
+                
+                CachStorage.shared.cachedImage.setObject(data! as NSData, forKey: url as NSURL)
+            }
+            
+            task.resume()
+            
+            self.task = task
+            
+            return Disposables.create {
+                task.cancel()
+            }
         }
-
-        return url
     }
+}
+
+enum ImageDownloadError: Error {
+    case selfError
+    case urlError
+    case networkError
+    case responseError
+    case statusError
+    case dataError
 }

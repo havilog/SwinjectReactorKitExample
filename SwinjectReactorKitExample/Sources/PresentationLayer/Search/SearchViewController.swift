@@ -7,13 +7,18 @@
 
 import Then
 import UIKit
+import Lottie
 import SnapKit
 import RxCocoa
 import ReactorKit
 
 final class SearchViewController: UIViewController {
     
+    // MARK: Property
+    
     var disposeBag: DisposeBag = .init()
+    
+    // MARK: UI Property
     
     private let searchIDTextField: UITextField = .init().then {
         $0.placeholder = "Git id 입력"
@@ -26,11 +31,17 @@ final class SearchViewController: UIViewController {
     private let resultText: UILabel = .init()
     
     private let resultImageView: UIImageView = .init().then {
-        $0.image = UIImage(named: "empty")
         $0.contentMode = .scaleAspectFit
     }
     
+    private let indicator: AnimationView = .init(name: "progress_bar").then {
+        $0.contentMode = .scaleAspectFit
+        $0.isHidden = true
+    }
+    
     private let resultIDText: UILabel = .init()
+    
+    // MARK: Init
     
     init(reactor: SearchReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -41,15 +52,31 @@ final class SearchViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.resultImageView.image = UIImage(named: "initial_empty_image")
+    }
 }
+
+// MARK: UI
 
 extension SearchViewController {
     private func setUpUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
+        
+        self.view.addSubview(self.indicator)
+        self.indicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalTo(50)
+        }
         
         self.view.addSubview(self.searchIDTextField)
         self.searchIDTextField.snp.makeConstraints { 
@@ -85,16 +112,28 @@ extension SearchViewController {
     }
 }
 
+// MARK: Bind
+
 extension SearchViewController: View {
     func bind(reactor: SearchReactor) {
+        bindAction(reactor: reactor)
+        bindState(reactor: reactor)
+    }
+    
+    private func bindAction(reactor: SearchReactor) {
         startButton.rx.tap
             .map { [weak self] in
-//                guard let self = self else { return }
                 return Reactor.Action.searchUser(id: self?.searchIDTextField.text ?? "")
             }
+            .do(onNext: { _ in
+                self.indicator.isHidden = false
+                self.indicator.play()
+            })
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func bindState(reactor: SearchReactor) {
         reactor.state
             .map(\.searchResult)
             .bind(to: resultText.rx.text)
@@ -102,7 +141,11 @@ extension SearchViewController: View {
         
         reactor.state
             .map(\.searchAvartarImageData)
-            .map { $0 == nil ? UIImage(named: "empty2") : UIImage(data: $0!) }
+            .map { $0 == nil ? UIImage(named: "no_url_image") : UIImage(data: $0!) }
+            .do(onNext: { _ in
+                self.indicator.isHidden = true
+                self.indicator.stop()
+            })
             .bind(to: resultImageView.rx.image)
             .disposed(by: disposeBag)
         
@@ -112,6 +155,11 @@ extension SearchViewController: View {
             .disposed(by: disposeBag)
         
         reactor.errorResult
+            .observeOn(MainScheduler.instance)
+            .do(onNext: { _ in
+                self.indicator.isHidden = true
+                self.indicator.stop()
+            })
             .subscribe(onNext: {
                 print("error: ", $0)
             })

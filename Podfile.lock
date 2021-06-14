@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - lottie-ios (3.2.3)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -30,6 +31,7 @@ PODS:
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
+  - lottie-ios
   - Moya/RxSwift
   - PureSwinject
   - ReactorKit
@@ -43,6 +45,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - lottie-ios
     - Moya
     - Pure
     - PureSwinject
@@ -58,6 +61,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Pure: 82d6f4438672a41d21ea6fadd126e1466db001c5
   PureSwinject: 0010f4069bd552cdc46a7be7d58481b22ced2fd3
@@ -71,6 +75,6 @@ SPEC CHECKSUMS:
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 74fbc0d91583b5aabeb2533e95dbf0bbf8e6cbd0
+PODFILE CHECKSUM: d05efa53afa92ba62def6d8081e754fbfb9bd904
 
 COCOAPODS: 1.10.1

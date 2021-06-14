@@ -20,6 +20,9 @@
 		40961D0726733FCB00E90193 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40961D0626733FCB00E90193 /* NetworkAPI.swift */; };
 		40961D0A267343F800E90193 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40961D09267343F800E90193 /* User.swift */; };
 		40EC03532676F9DE00589C9D /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC03522676F9DE00589C9D /* ImageService.swift */; };
+		40EC03562677231600589C9D /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC03552677231600589C9D /* CacheStorage.swift */; };
+		40EC035826772F6500589C9D /* indicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 40EC035726772F6500589C9D /* indicator.json */; };
+		40EC035A2677363000589C9D /* progress_bar.json in Resources */ = {isa = PBXBuildFile; fileRef = 40EC03592677363000589C9D /* progress_bar.json */; };
 		442755C8083629242D5CD233 /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB533760722B25B1C5FAB63D /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework */; };
 		4DF17FC3D0E97E996DD412E8 /* Pods_SwinjectReactorKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */; };
 		8B7388F7B7A3919E28F190F4 /* Pods_SwinjectReactorKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E66A81AE6C7E18DB1A44B5 /* Pods_SwinjectReactorKitExampleTests.framework */; };
@@ -67,6 +70,9 @@
 		40961D0626733FCB00E90193 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		40961D09267343F800E90193 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		40EC03522676F9DE00589C9D /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		40EC03552677231600589C9D /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
+		40EC035726772F6500589C9D /* indicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = indicator.json; sourceTree = "<group>"; };
+		40EC03592677363000589C9D /* progress_bar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress_bar.json; sourceTree = "<group>"; };
 		5D4C3BDE8DCED8D44BC70862 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A4ED93C563C3F5F6B76C65B6 /* Pods-SwinjectReactorKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwinjectReactorKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +189,8 @@
 		405C9DCE26579F0800C33809 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				40EC03592677363000589C9D /* progress_bar.json */,
+				40EC035726772F6500589C9D /* indicator.json */,
 				405C9D9A26579CFB00C33809 /* Assets.xcassets */,
 				405C9D9C26579CFB00C33809 /* LaunchScreen.storyboard */,
 			);
@@ -243,6 +251,7 @@
 		40EC034F2676F1DD00589C9D /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				40EC0354267722EA00589C9D /* Cache */,
 				40961D0526733FB600E90193 /* Network */,
 				40961D08267343F000E90193 /* Model */,
 			);
@@ -264,6 +273,14 @@
 				400B3E5E265B4A4300E2377B /* SearchReactor.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		40EC0354267722EA00589C9D /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				40EC03552677231600589C9D /* CacheStorage.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		566CBACC59D3813C28F09A1F /* Pods */ = {
@@ -389,6 +406,8 @@
 			files = (
 				405C9D9E26579CFB00C33809 /* LaunchScreen.storyboard in Resources */,
 				405C9D9B26579CFB00C33809 /* Assets.xcassets in Resources */,
+				40EC035A2677363000589C9D /* progress_bar.json in Resources */,
+				40EC035826772F6500589C9D /* indicator.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +537,7 @@
 			files = (
 				400B3E62265B5E6F00E2377B /* DIContainer.swift in Sources */,
 				405C9D9626579CFA00C33809 /* SearchViewController.swift in Sources */,
+				40EC03562677231600589C9D /* CacheStorage.swift in Sources */,
 				40EC03532676F9DE00589C9D /* ImageService.swift in Sources */,
 				400B3E5F265B4A4300E2377B /* SearchReactor.swift in Sources */,
 				405C9D9226579CFA00C33809 /* AppDelegate.swift in Sources */,
@@ -693,8 +713,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P25P5JJVFC;
+				DEVELOPMENT_TEAM = 85329TR25G;
 				INFOPLIST_FILE = SwinjectReactorKitExample/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -702,6 +723,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.havi.SwinjectReactorKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -713,8 +735,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P25P5JJVFC;
+				DEVELOPMENT_TEAM = 85329TR25G;
 				INFOPLIST_FILE = SwinjectReactorKitExample/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -722,6 +745,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.havi.SwinjectReactorKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
