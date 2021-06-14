@@ -9,19 +9,37 @@ import Foundation
 import RxSwift
 import Moya
 
+struct SearchUserResult {
+    let nickname: String?
+    let url: URL?
+    let id: Int?
+}
+
 protocol SearchServiceType {
-    func searchUser(id: String) -> Single<User.Item?>
+    func searchUser(id: String) -> Observable<SearchUserResult>
 }
 
 final class SearchService: SearchServiceType {
     
-//    @Dependency private var networkService: NetworkServiceType
-    private let provider: MoyaProvider<NetworkAPI> = .init()
+    private let provider: MoyaProvider<NetworkAPI>
     
-    func searchUser(id: String) -> Single<User.Item?> {
+    init(provider: MoyaProvider<NetworkAPI>) {
+        self.provider = provider
+    }
+    
+    func searchUser(id: String) -> Observable<SearchUserResult> {
         return provider.rx.request(.searchUser(query: id))
             .filterSuccessfulStatusCodes()
             .map(User.self)
-            .map { $0.items.first }
+            .map { user -> SearchUserResult in
+                let item = user.items.first
+                
+                return SearchUserResult(
+                    nickname: item?.login,
+                    url: URL(string: item?.avatar_url ?? ""),
+                    id: item?.id
+                ) 
+            }
+            .asObservable()
     }
 }

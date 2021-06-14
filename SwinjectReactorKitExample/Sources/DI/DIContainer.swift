@@ -9,6 +9,7 @@ import Foundation
 import Swinject
 import SwinjectSafeAuto
 import PureSwinject
+import Moya
 
 final class DIContainer {
     
@@ -25,7 +26,8 @@ final class DIContainer {
     
     private func configureContainer() {
         container.register(NetworkServiceType.self) { resolver in NetworkService() }
-        container.register(SearchServiceType.self) { resolver in SearchService() }
+        container.register(MoyaProvider<NetworkAPI>.self) { resolver in MoyaProvider<NetworkAPI>() }
+        container.register(SearchServiceType.self) { resolver in SearchService(provider: .init()) }
 //        container.register(PurchaseServiceType.self) { resolver in
 //            PurchaseService(dependency: resolver.resolve(NetworkServiceType.self)!)
 //        }

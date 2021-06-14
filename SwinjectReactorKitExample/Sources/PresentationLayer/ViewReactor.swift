@@ -14,21 +14,22 @@ final class ViewReactor: Reactor {
     // MARK: Events
     
     enum Action {
-        case buttonDidTapped
+        case searchUser(id: String)
     }
     
     enum Mutation {
-        case setSearchResult(User.Item)
+        case setSearchResult(SearchUserResult)
     }
     
     struct State {
-        var searchResult: String = ""
+        var searchResult: String = "before button pressed"
+        var searchAvartarImageResult: UIImage? // default image
+        var searchIDResult: String = "id ?"
     }
     
     // MARK: Properties
     
-    @Dependency 
-    private var purchaseService: SearchServiceType
+    @Dependency private var searchService: SearchServiceType
     let initialState: State
     let errorResult: PublishSubject<Error> = .init()
     
@@ -44,14 +45,14 @@ final class ViewReactor: Reactor {
 extension ViewReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .buttonDidTapped:
-            return purchaseService.searchUser(id: "hansangjin96")
-                .compactMap { $0 }
+        case let .searchUser(id):
+            return searchService.searchUser(id: id) // returns Single<T?>
                 .catchError { [weak self] error in
+                    print("Error occured!!!!!")
                     self?.errorResult.onNext(error)
                     return .empty()
                 }
-                .asObservable()
+                .do(onNext: { print($0) })
                 .map { .setSearchResult($0) }
                 
         }
@@ -64,8 +65,10 @@ extension ViewReactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setSearchResult(let result):
-            newState.searchResult = result.login
+        case let .setSearchResult(result):
+            newState.searchResult = result.nickname ?? "없음"
+            newState.searchAvartarImageResult = try? UIImage(data: Data(contentsOf: result.url!))
+            newState.searchIDResult = String(result.id ?? 0)
         }
         return newState
     }

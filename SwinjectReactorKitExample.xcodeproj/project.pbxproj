@@ -176,7 +176,7 @@
 				405C9DD026579F3C00C33809 /* Application */,
 				405C9DD226579F5300C33809 /* Service */,
 				400B3E60265B5E5800E2377B /* DI */,
-				405C9DD126579F4B00C33809 /* Scene */,
+				405C9DD126579F4B00C33809 /* PresentationLayer */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -207,13 +207,13 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		405C9DD126579F4B00C33809 /* Scene */ = {
+		405C9DD126579F4B00C33809 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				405C9D9526579CFA00C33809 /* ViewController.swift */,
 				400B3E5E265B4A4300E2377B /* ViewReactor.swift */,
 			);
-			path = Scene;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		405C9DD226579F5300C33809 /* Service */ = {
