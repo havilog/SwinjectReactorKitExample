@@ -13,54 +13,6 @@ import RxNimble
 
 @testable import SwinjectReactorKitExample
 
-class MockURLSessionDataTask: URLSessionDataTask {
-    override init() { }
-    var resumeDidCall: () -> Void = {}
-    
-    override func resume() {
-        resumeDidCall()
-    }
-}
-
-class MockURLSession: URLSessionType {
-    
-    var makeRequestFail = false
-    init(makeRequestFail: Bool = false) {
-        self.makeRequestFail = makeRequestFail
-    }
-    
-    var sessionDataTask: MockURLSessionDataTask?
-    
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        
-        let successResponse = HTTPURLResponse(
-            url: NetworkAPI.baseURLForTest, 
-            statusCode: 200, 
-            httpVersion: "2", 
-            headerFields: nil
-        )
-        
-        let failureResponse = HTTPURLResponse(
-            url: NetworkAPI.baseURLForTest, 
-            statusCode: 410, 
-            httpVersion: "2", 
-            headerFields: nil
-        )
-        
-        let sessionDataTask = MockURLSessionDataTask()
-        
-        sessionDataTask.resumeDidCall = {
-            if self.makeRequestFail {
-                completionHandler(nil, failureResponse, nil)
-            } else {
-                completionHandler(NetworkAPI.sampleDataForTest, successResponse, nil)
-            }
-        }
-        self.sessionDataTask = sessionDataTask
-        return sessionDataTask
-    }
-}
-
 class ImageServiceTest: XCTestCase {
     
     var sut: ImageService!
@@ -74,8 +26,6 @@ class ImageServiceTest: XCTestCase {
     func test_이미지_다운로드_성공() {
         let expectation = XCTestExpectation()
         
-        // user sample
-//        let response = try? JSONDecoder().decode(User.self, from: NetworkAPI.sampleDataForTest)
         let response = NetworkAPI.sampleDataForTest
         
         sut.fetchData(url: NetworkAPI.baseURLForTest) { result in
@@ -92,6 +42,7 @@ class ImageServiceTest: XCTestCase {
 
         wait(for: [expectation], timeout: 2.0)
     }
+    
     func test_이미지_다운로드_실패() {
         sut = .init(session: MockURLSession(makeRequestFail: true))
         
@@ -112,4 +63,106 @@ class ImageServiceTest: XCTestCase {
 
         wait(for: [expectation], timeout: 2.0)
     }
+    
+    func test_이미지_다운로드_Single_성공() {
+        var expectedResponse = ImageDownloadError.urlError
+        
+        // given
+        // url == nil
+        do {
+            _ = try sut.fetchImage(with: nil)
+//                .catchError { error in
+//                    print("catchedERRR")
+//                    XCTAssertEqual(error as! ImageDownloadError, expectedResponse)
+//                    return .just(nil)
+//                }
+                .toBlocking()
+                .first()
+            XCTFail("catch에서 error 잡아야함.")
+        } catch { // Observable을 catchError 안했을 때, onError로 sequence가 끝날 경우 first() 에서 error throw
+            XCTAssertEqual(error as! ImageDownloadError, expectedResponse)
+        }
+
+        // given
+        // self == nil
+        expectedResponse = .selfError
+        do {
+            _ = try sut.fetchImage(with: NetworkAPI.baseURLForTest)
+                .do(onSubscribe: { [weak self] in
+                    self?.sut = nil
+                })
+                .toBlocking().first()
+            XCTFail("catch에서 error 잡아야함.")
+        } catch {
+            XCTAssertEqual(expectedResponse, error as! ImageDownloadError)
+        }
+        
+        let expectedResult = NetworkAPI.sampleDataForTest
+        // 정상 url
+        sut = .init(session: MockURLSession())
+        do {
+            let result = try sut.fetchImage(with: NetworkAPI.baseURLForTest)
+                .toBlocking().first()
+            
+            // then
+            XCTAssertEqual(expectedResult, result)
+        } catch {
+            XCTFail("try 문에서 error throw하면 안됨")
+        }
+    }
+    
+}
+
+// MARK: 연습용
+
+extension ImageServiceTest {
+    
+    func test_RxTest_연습1() {
+        let someObservable = Observable.of(10, 20, 30)
+        let result = try! someObservable.toBlocking().first()
+        XCTAssertEqual(result, 10)
+        
+        let scheduler = ConcurrentDispatchQueueScheduler(qos: .background)
+        let intObservable = Observable.of(10, 20, 30)
+            .map { $0 * 2 }
+            .subscribeOn(scheduler)
+        do {
+            let result = try intObservable.observeOn(MainScheduler.instance).toBlocking().toArray()
+            XCTAssertEqual(result, [20, 40, 60])
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func test_RxTest_연습2() {
+        let scheduler = TestScheduler(initialClock: 0)
+        
+        let xs = scheduler.createHotObservable([
+            Recorded.next(150, 1),
+            Recorded.next(210, 0),
+            Recorded.next(220, 1),
+            Recorded.next(230, 2),
+            Recorded.next(240, 4),
+            Recorded.completed(300)
+        ])
+        
+        let res = scheduler.start { xs.map { $0 * 2 } }
+        
+        let correctMessages = [
+            Recorded.next(210, 0 * 2),
+            Recorded.next(220, 1 * 2),
+            Recorded.next(230, 2 * 2),
+            Recorded.next(240, 4 * 2),
+            Recorded.completed(300)
+        ]
+        
+        let correctSubscriptions = [
+            Subscription(200, 300)
+        ]
+        
+        XCTAssertEqual(res.events, correctMessages)
+        XCTAssertEqual(xs.subscriptions, correctSubscriptions)
+    }
+    
+    
 }

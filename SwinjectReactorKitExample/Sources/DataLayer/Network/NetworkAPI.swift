@@ -13,7 +13,7 @@ enum NetworkAPI {
 }
 
 extension NetworkAPI {
-    static var baseURLForTest: URL = URL(string: "https://api.github.com")!
+    static var baseURLForTest: URL = URL(string: "https://avatars.githubusercontent.com/u/57659933?v=4")!
     
     static let sampleDataForTest: Data = Data(
             """

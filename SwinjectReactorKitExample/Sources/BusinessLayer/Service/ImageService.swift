@@ -46,43 +46,36 @@ final class ImageService: ImageServiceType {
         let task = self.urlSession.dataTask(with: request) { data, response, error in
             guard error == nil else { 
                 print("ImageDownloadError.networkError", error!.localizedDescription)
-//                single(.error(error!))
                 completion(.failure(ImageDownloadError.networkError))
-                
                 return
             }
             
             guard let response = response as? HTTPURLResponse else {
                 print("ImageDownloadError.responseError")
-//                single(.error(ImageDownloadError.responseError))
                 completion(.failure(ImageDownloadError.responseError))
                 return
             }
             
             guard 200..<300 ~= response.statusCode else {
                 print("ImageDownloadError.statusError")
-//                single(.error(ImageDownloadError.statusError))
                 completion(.failure(ImageDownloadError.statusError))
                 return
             }
             
             guard data != nil else {
                 print("ImageDownloadError.dataError")
-//                single(.error(ImageDownloadError.dataError))
                 completion(.failure(ImageDownloadError.dataError))
                 return
             }
             
             print("data received")
-            
-//            single(.success(data!))
             completion(.success(data!))
             
             CachStorage.shared.cachedImage.setObject(data! as NSData, forKey: url as NSURL)
         }
         
         task.resume()
-        
+
         self.task = task
     }
     
