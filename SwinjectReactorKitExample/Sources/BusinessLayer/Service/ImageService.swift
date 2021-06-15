@@ -29,10 +29,62 @@ protocol ImageServiceType {
 
 final class ImageService: ImageServiceType {
 
-    @Dependency private var urlSession: URLSessionType
+    private let urlSession: URLSessionType
     private var task: URLSessionTask?
     
-    init() {}
+    init(session: URLSessionType = URLSession(configuration: .default)) {
+        self.urlSession = session
+    }
+    
+    func fetchData(url: URL, completion: @escaping (Result<Data, ImageDownloadError>) -> Void) {
+        let request = URLRequest(url: url)
+        
+        // before task
+        self.task?.cancel()
+        
+        // current task
+        let task = self.urlSession.dataTask(with: request) { data, response, error in
+            guard error == nil else { 
+                print("ImageDownloadError.networkError", error!.localizedDescription)
+//                single(.error(error!))
+                completion(.failure(ImageDownloadError.networkError))
+                
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                print("ImageDownloadError.responseError")
+//                single(.error(ImageDownloadError.responseError))
+                completion(.failure(ImageDownloadError.responseError))
+                return
+            }
+            
+            guard 200..<300 ~= response.statusCode else {
+                print("ImageDownloadError.statusError")
+//                single(.error(ImageDownloadError.statusError))
+                completion(.failure(ImageDownloadError.statusError))
+                return
+            }
+            
+            guard data != nil else {
+                print("ImageDownloadError.dataError")
+//                single(.error(ImageDownloadError.dataError))
+                completion(.failure(ImageDownloadError.dataError))
+                return
+            }
+            
+            print("data received")
+            
+//            single(.success(data!))
+            completion(.success(data!))
+            
+            CachStorage.shared.cachedImage.setObject(data! as NSData, forKey: url as NSURL)
+        }
+        
+        task.resume()
+        
+        self.task = task
+    }
     
     func fetchImage(with url: URL?) -> Single<Data?> {
         return Single<Data?>.create { [weak self] single in
@@ -56,48 +108,18 @@ final class ImageService: ImageServiceType {
             }
             
             // cache가 없으면 Network통신
-            let request = URLRequest(url: url)
-            
-            // before task
-            self.task?.cancel()
-            
-            // current task
-            let task = self.urlSession.dataTask(with: request) { data, response, error in
-                guard error == nil else { 
-                    print("ImageDownloadError.networkError", error!.localizedDescription)
-                    single(.error(error!))
-                    return
+            self.fetchData(url: url) { result in
+                switch result {
+                case .success(let data):
+                    single(.success(data))
+                    
+                case .failure(let error):
+                    single(.error(error))
                 }
-                
-                guard let response = response as? HTTPURLResponse else {
-                    print("ImageDownloadError.responseError")
-                    single(.error(ImageDownloadError.responseError))
-                    return
-                }
-                
-                guard 200..<300 ~= response.statusCode else {
-                    print("ImageDownloadError.statusError")
-                    single(.error(ImageDownloadError.statusError))
-                    return
-                }
-                
-                guard data != nil else {
-                    print("ImageDownloadError.dataError")
-                    single(.error(ImageDownloadError.dataError))
-                    return
-                }
-                
-                single(.success(data!))
-                
-                CachStorage.shared.cachedImage.setObject(data! as NSData, forKey: url as NSURL)
             }
             
-            task.resume()
-            
-            self.task = task
-            
             return Disposables.create {
-                task.cancel()
+                self.task?.cancel()
             }
         }
     }

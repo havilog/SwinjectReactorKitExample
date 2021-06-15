@@ -24,6 +24,7 @@
 		40EC035826772F6500589C9D /* indicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 40EC035726772F6500589C9D /* indicator.json */; };
 		40EC035A2677363000589C9D /* progress_bar.json in Resources */ = {isa = PBXBuildFile; fileRef = 40EC03592677363000589C9D /* progress_bar.json */; };
 		40EC035C26774B3C00589C9D /* ImageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC035B26774B3C00589C9D /* ImageServiceTest.swift */; };
+		40EC0361267834C400589C9D /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC0360267834C400589C9D /* Joke.swift */; };
 		442755C8083629242D5CD233 /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB533760722B25B1C5FAB63D /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework */; };
 		4DF17FC3D0E97E996DD412E8 /* Pods_SwinjectReactorKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */; };
 		8B7388F7B7A3919E28F190F4 /* Pods_SwinjectReactorKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E66A81AE6C7E18DB1A44B5 /* Pods_SwinjectReactorKitExampleTests.framework */; };
@@ -75,6 +76,7 @@
 		40EC035726772F6500589C9D /* indicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = indicator.json; sourceTree = "<group>"; };
 		40EC03592677363000589C9D /* progress_bar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress_bar.json; sourceTree = "<group>"; };
 		40EC035B26774B3C00589C9D /* ImageServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTest.swift; sourceTree = "<group>"; };
+		40EC0360267834C400589C9D /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		5D4C3BDE8DCED8D44BC70862 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A4ED93C563C3F5F6B76C65B6 /* Pods-SwinjectReactorKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwinjectReactorKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				40961D09267343F800E90193 /* User.swift */,
+				40EC0360267834C400589C9D /* Joke.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40EC0361267834C400589C9D /* Joke.swift in Sources */,
 				400B3E62265B5E6F00E2377B /* DIContainer.swift in Sources */,
 				405C9D9626579CFA00C33809 /* SearchViewController.swift in Sources */,
 				40EC03562677231600589C9D /* CacheStorage.swift in Sources */,
