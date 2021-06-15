@@ -28,6 +28,7 @@ This is a Demo App for `Swinject`
 
 ### UI
 
+- RxSwift
 - RxCocoa
 - SnapKit
 - lottie-ios
