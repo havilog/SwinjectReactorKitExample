@@ -28,9 +28,7 @@ protocol ImageServiceType {
 }
 
 final class ImageService: ImageServiceType {
-    
-    
-    
+
     @Dependency private var urlSession: URLSessionType
     private var task: URLSessionTask?
     

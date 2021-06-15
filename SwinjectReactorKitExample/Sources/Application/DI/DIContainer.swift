@@ -43,7 +43,7 @@ final class DIContainer {
     }
     
     private func configureContainerSwinjectSafeAuto() {
-        
+        // TODO: 에러 잡기
         container.autoregister(MoyaProvider<NetworkAPI>.self, initializer: MoyaProvider<NetworkAPI>.init)
         container.autoregister(URLSessionType.self, initializer: URLSession.init)
         container.autoregister(ImageServiceType.self, initializer: ImageService.init)

@@ -33,7 +33,17 @@ target 'SwinjectReactorKitExample' do
 
   target 'SwinjectReactorKitExampleTests' do
     inherit! :search_paths
-    # Pods for testing
+    
+    # For Normal Test
+    
+    pod 'Quick'
+    pod 'Nimble'
+    
+    # For Reactive Test
+    
+    pod 'RxTest'
+    pod 'RxNimble'
+
   end
 
   target 'SwinjectReactorKitExampleUITests' do

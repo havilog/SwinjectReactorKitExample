@@ -78,22 +78,5 @@ private extension SearchReactor {
             }
             .do(onNext: { print($0) })
             .map { .setSearchResult($0) }
-        
-        
-//        return image.fetchImage(with: URL(string: "https://blog.kakaocdn.net/dn/daPJMD/btqCinzhh9J/akDK6BMiG3QKH3XWXwobx1/img.jpg")!)
-//            .asObservable()
-//            .catchError { [weak self] error in
-//                print("Error catched!!!!!")
-//                self?.errorResult.onNext(error)
-//                return .empty()
-//            }
-////            .do(onNext: { print($0) })
-//            .map { .setSearchResult(SearchUserResult(nickname: "test", urlData: $0, id: 0)) }
     }
 }
-
-
-/*
- 3. DI 다시 계층구조 설정
- 4. 테스팅
- */

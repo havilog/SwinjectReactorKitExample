@@ -23,6 +23,7 @@
 		40EC03562677231600589C9D /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC03552677231600589C9D /* CacheStorage.swift */; };
 		40EC035826772F6500589C9D /* indicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 40EC035726772F6500589C9D /* indicator.json */; };
 		40EC035A2677363000589C9D /* progress_bar.json in Resources */ = {isa = PBXBuildFile; fileRef = 40EC03592677363000589C9D /* progress_bar.json */; };
+		40EC035C26774B3C00589C9D /* ImageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC035B26774B3C00589C9D /* ImageServiceTest.swift */; };
 		442755C8083629242D5CD233 /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB533760722B25B1C5FAB63D /* Pods_SwinjectReactorKitExample_SwinjectReactorKitExampleUITests.framework */; };
 		4DF17FC3D0E97E996DD412E8 /* Pods_SwinjectReactorKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */; };
 		8B7388F7B7A3919E28F190F4 /* Pods_SwinjectReactorKitExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E66A81AE6C7E18DB1A44B5 /* Pods_SwinjectReactorKitExampleTests.framework */; };
@@ -73,6 +74,7 @@
 		40EC03552677231600589C9D /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 		40EC035726772F6500589C9D /* indicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = indicator.json; sourceTree = "<group>"; };
 		40EC03592677363000589C9D /* progress_bar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress_bar.json; sourceTree = "<group>"; };
+		40EC035B26774B3C00589C9D /* ImageServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTest.swift; sourceTree = "<group>"; };
 		5D4C3BDE8DCED8D44BC70862 /* Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A4ED93C563C3F5F6B76C65B6 /* Pods-SwinjectReactorKitExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExampleTests.release.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB97D9A7117DF06B1E4E8846 /* Pods_SwinjectReactorKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwinjectReactorKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 		405C9DA726579CFB00C33809 /* SwinjectReactorKitExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				40EC035B26774B3C00589C9D /* ImageServiceTest.swift */,
 				405C9DA826579CFB00C33809 /* SwinjectReactorKitExampleTests.swift */,
 				405C9DAA26579CFB00C33809 /* Info.plist */,
 			);
@@ -326,6 +329,7 @@
 				405C9DA026579CFB00C33809 /* Sources */,
 				405C9DA126579CFB00C33809 /* Frameworks */,
 				405C9DA226579CFB00C33809 /* Resources */,
+				308EAF8BD2941DE90B5DD393 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -467,6 +471,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests/Pods-SwinjectReactorKitExample-SwinjectReactorKitExampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		308EAF8BD2941DE90B5DD393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		528F5A3543F41F5495113C1D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -553,6 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				405C9DA926579CFB00C33809 /* SwinjectReactorKitExampleTests.swift in Sources */,
+				40EC035C26774B3C00589C9D /* ImageServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
