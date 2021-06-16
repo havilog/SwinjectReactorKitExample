@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
-        let vc = SearchViewController(reactor: .init(searchService: SearchService(imageService: ImageService())))
+        let vc = SearchViewController(reactor: .init(searchService: SearchService(imageService: ImageService(), networkRepository: NetworkRepository<NetworkAPI>())))
         
         window.rootViewController = vc
         window.makeKeyAndVisible()

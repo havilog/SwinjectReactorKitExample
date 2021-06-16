@@ -23,6 +23,7 @@
 		40A20E532679A07000052D17 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A20E522679A07000052D17 /* MockImageService.swift */; };
 		40A20E562679BB1500052D17 /* SearchReactorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A20E552679BB1500052D17 /* SearchReactorTest.swift */; };
 		40A20E582679C21200052D17 /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A20E572679C21200052D17 /* MockSearchService.swift */; };
+		40A20E5A2679D7CB00052D17 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A20E592679D7CB00052D17 /* NetworkRepository.swift */; };
 		40EC03532676F9DE00589C9D /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC03522676F9DE00589C9D /* ImageService.swift */; };
 		40EC03562677231600589C9D /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EC03552677231600589C9D /* CacheStorage.swift */; };
 		40EC035826772F6500589C9D /* indicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 40EC035726772F6500589C9D /* indicator.json */; };
@@ -80,6 +81,7 @@
 		40A20E522679A07000052D17 /* MockImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
 		40A20E552679BB1500052D17 /* SearchReactorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReactorTest.swift; sourceTree = "<group>"; };
 		40A20E572679C21200052D17 /* MockSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchService.swift; sourceTree = "<group>"; };
+		40A20E592679D7CB00052D17 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		40EC03522676F9DE00589C9D /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		40EC03552677231600589C9D /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 		40EC035726772F6500589C9D /* indicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = indicator.json; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				40961D0626733FCB00E90193 /* NetworkAPI.swift */,
+				40A20E592679D7CB00052D17 /* NetworkRepository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				40961D0A267343F800E90193 /* User.swift in Sources */,
 				405C9DD62657A1F300C33809 /* SearchService.swift in Sources */,
 				405C9D9426579CFA00C33809 /* SceneDelegate.swift in Sources */,
+				40A20E5A2679D7CB00052D17 /* NetworkRepository.swift in Sources */,
 				40961D0726733FCB00E90193 /* NetworkAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
