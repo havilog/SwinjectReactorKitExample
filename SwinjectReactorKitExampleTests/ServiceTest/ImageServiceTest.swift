@@ -16,58 +16,16 @@ import RxNimble
 class ImageServiceTest: XCTestCase {
     
     var sut: ImageService!
-    var disposeBag: DisposeBag = .init()
 
     override func setUpWithError() throws {
         sut = .init(session: MockURLSession())
         XCTAssertNotNil(sut)
     }
     
-    func test_이미지_다운로드_성공() {
-        let expectation = XCTestExpectation()
-        
-        let response = NetworkAPI.sampleDataForTest
-        
-        sut.fetchData(url: NetworkAPI.baseURLForTest) { result in
-            switch result {
-            case .success(let data):
-                XCTAssertEqual(data, response)
-                
-            case .failure:
-                XCTFail()
-            }
-            
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 2.0)
-    }
-    
-    func test_이미지_다운로드_실패() {
-        sut = .init(session: MockURLSession(makeRequestFail: true))
-        
-        let expectation = XCTestExpectation()
-        
-        let expectedError = ImageDownloadError.statusError
-        
-        sut.fetchData(url: NetworkAPI.baseURLForTest) { result in
-            switch result {
-            case .success:
-                XCTFail()
-                
-            case .failure(let error):
-                XCTAssertEqual(error, expectedError)
-            }
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 2.0)
-    }
-    
     func test_이미지_다운로드_Single_성공() {
         var expectedResponse = ImageDownloadError.urlError
         
-        // given
+        // when
         // url == nil
         do {
             _ = try sut.fetchImage(with: nil)
@@ -79,11 +37,13 @@ class ImageServiceTest: XCTestCase {
                 .toBlocking()
                 .first()
             XCTFail("catch에서 error 잡아야함.")
-        } catch { // Observable을 catchError 안했을 때, onError로 sequence가 끝날 경우 first() 에서 error throw
+        } catch {
+            // then
+            // Observable을 catchError 안했을 때, onError로 sequence가 끝날 경우 first() 에서 error throw
             XCTAssertEqual(error as! ImageDownloadError, expectedResponse)
         }
 
-        // given
+        // when
         // self == nil
         expectedResponse = .selfError
         do {
@@ -94,10 +54,12 @@ class ImageServiceTest: XCTestCase {
                 .toBlocking().first()
             XCTFail("catch에서 error 잡아야함.")
         } catch {
+            // then
             XCTAssertEqual(expectedResponse, error as! ImageDownloadError)
         }
         
         let expectedResult = NetworkAPI.sampleDataForTest
+        // when
         // 정상 url
         sut = .init(session: MockURLSession())
         do {

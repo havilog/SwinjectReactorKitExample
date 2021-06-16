@@ -65,7 +65,37 @@ extension NetworkAPI: TargetType {
     }
     
     var sampleData: Data {
-        return Data()
+        return Data(
+                    """
+                    {
+                    "total_count": 1,
+                    "incomplete_results": false,
+                    "items": [
+                    {
+                    "login": "hansangjin96",
+                    "id": 57659933,
+                    "node_id": "MDQ6VXNlcjU3NjU5OTMz",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/57659933?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/hansangjin96",
+                    "html_url": "https://github.com/hansangjin96",
+                    "followers_url": "https://api.github.com/users/hansangjin96/followers",
+                    "following_url": "https://api.github.com/users/hansangjin96/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/hansangjin96/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/hansangjin96/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/hansangjin96/subscriptions",
+                    "organizations_url": "https://api.github.com/users/hansangjin96/orgs",
+                    "repos_url": "https://api.github.com/users/hansangjin96/repos",
+                    "events_url": "https://api.github.com/users/hansangjin96/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/hansangjin96/received_events",
+                    "type": "User",
+                    "site_admin": false,
+                    "score": 1
+                    }
+                    ]
+                    }
+                    """.utf8
+        )
     }
     
     var task: Task {

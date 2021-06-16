@@ -37,18 +37,18 @@ final class DIContainer {
             ImageService.init()
         }
         
-        container.register(SearchServiceType.self) { resolver in
-            SearchService.init()
-        }
+//        container.register(SearchServiceType.self) { resolver in
+//            SearchService.init()
+//        }
     }
     
     private func configureContainerSwinjectSafeAuto() {
         // TODO: 에러 잡기
-        container.autoregister(MoyaProvider<NetworkAPI>.self, initializer: MoyaProvider<NetworkAPI>.init)
-        container.autoregister(URLSessionType.self, initializer: URLSession.init)
-        container.autoregister(ImageServiceType.self, initializer: ImageService.init)
-        container.autoregister(SearchServiceType.self, initializer: SearchService.init)
-        try! container.verify()
+//        container.autoregister(MoyaProvider<NetworkAPI>.self, initializer: MoyaProvider<NetworkAPI>.init)
+//        container.autoregister(URLSessionType.self, initializer: URLSession.init)
+//        container.autoregister(ImageServiceType.self, initializer: ImageService.init)
+//        container.autoregister(SearchServiceType.self, initializer: SearchService.init)
+//        try! container.verify()
     }
     
     private func configureContainerPureSwinject() {

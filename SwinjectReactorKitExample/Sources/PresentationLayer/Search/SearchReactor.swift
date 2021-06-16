@@ -28,15 +28,17 @@ final class SearchReactor: Reactor {
     
     // MARK: Properties
     
-    @Dependency private var searchService: SearchServiceType
+//    @Dependency private var searchService: SearchServiceType
+    private var searchService: SearchService
     private let image = ImageService()
     let initialState: State
     let errorResult: PublishSubject<Error> = .init()
     
     // MARK: Initializers
     
-    init() {
+    init(searchService: SearchService) {
         initialState = State()
+        self.searchService = searchService
     }
 }
 
