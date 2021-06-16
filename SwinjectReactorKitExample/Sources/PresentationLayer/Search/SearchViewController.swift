@@ -24,7 +24,7 @@ final class SearchViewController: UIViewController {
         $0.placeholder = "Git id 입력"
     }
     
-    private let startButton: UIButton = .init(type: .system).then {
+    let startButton: UIButton = .init(type: .system).then {
         $0.setTitle("startButton", for: UIControl.State())
     }
     
