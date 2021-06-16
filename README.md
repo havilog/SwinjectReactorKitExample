@@ -41,6 +41,13 @@ This is a Demo App for `Swinject`
 
 - Moya/RxSwift
 
+### Test
+
+- Quick
+- Nimble
+- RxTest
+- RxNimble
+
 # Requirements
 
 - Xcode 12.x
