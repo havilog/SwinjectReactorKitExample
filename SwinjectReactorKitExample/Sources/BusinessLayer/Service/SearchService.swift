@@ -20,27 +20,13 @@ protocol SearchServiceType: AnyObject {
     func searchUser(id: String) -> Observable<SearchUserResult>
 }
 
-final class SearchService<Provider: MoyaProviderType>: SearchServiceType {    
-    // swinject
-//    @Dependency private var provider: MoyaProvider<NetworkAPI>
-//    @Dependency private var imageService: ImageServiceType
-    
-    private let imageService: ImageServiceType
-    private let networkRepository: Provider
-    
-    init(
-        imageService: ImageServiceType,
-        networkRepository: Provider
-    ) {
-        self.networkRepository = networkRepository
-        self.imageService = imageService
-    }
+final class SearchService: SearchServiceType {    
+    // swinject를 property wrapper로 감싸 dependency injection
+    @Dependency var networkRepository: NetworkRepositoryType
+    @Dependency var imageService: ImageServiceType
     
     func searchUser(id: String) -> Observable<SearchUserResult> {
-        return self.networkRepository.fetch(
-            endpoint: NetworkAPI.searchUser(query: id) as! Provider.T,
-            for: User.self
-        )
+        return self.networkRepository.fetch(endpoint: .searchUser(query: id), for: User.self)
             .map { user -> (nickname: String?, url: URL?, id: Int?) in
                 let item = user.items.first
                 

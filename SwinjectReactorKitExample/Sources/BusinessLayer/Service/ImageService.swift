@@ -29,12 +29,8 @@ protocol ImageServiceType {
 
 final class ImageService: ImageServiceType {
 
-    private let urlSession: URLSessionType
+    @Dependency private var urlSession: URLSessionType
     private var task: URLSessionTask?
-    
-    init(session: URLSessionType = URLSession(configuration: .default)) {
-        self.urlSession = session
-    }
     
     func fetchData(url: URL, completion: @escaping (Result<Data, ImageDownloadError>) -> Void) {
         let request = URLRequest(url: url)

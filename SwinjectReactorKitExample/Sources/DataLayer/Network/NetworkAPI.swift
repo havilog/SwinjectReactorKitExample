@@ -106,8 +106,6 @@ extension NetworkAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        nil
+        return ["User-Agent": "request"]
     }
-    
-    
 }

@@ -25,8 +25,12 @@ final class DIContainer {
     private let container: Container = .init()
     
     private func configureContainer() {
-        container.register(MoyaProvider<NetworkAPI>.self) { resolver in
-            MoyaProvider<NetworkAPI>()
+        container.register(Bool.self, name: "isStub") { resolver in
+            false
+        }
+        
+        container.register(NetworkRepositoryType.self) { resolver in
+            NetworkRepository()
         }
         
         container.register(URLSessionType.self) { resolver in
@@ -37,9 +41,9 @@ final class DIContainer {
             ImageService.init()
         }
         
-//        container.register(SearchServiceType.self) { resolver in
-//            SearchService.init()
-//        }
+        container.register(SearchServiceType.self) { resolver in
+            SearchService.init()
+        }
     }
     
     private func configureContainerSwinjectSafeAuto() {
@@ -54,8 +58,12 @@ final class DIContainer {
     private func configureContainerPureSwinject() {
     }
     
-    func resolve<T>() -> T {
-        guard let dependency = container.resolve(T.self) else {
+    func getContainter() -> Container {
+        return self.container
+    }
+    
+    func resolve<T>(name: String? = nil) -> T {
+        guard let dependency = container.resolve(T.self, name: name) else {
             fatalError("\(T.self) Error")
         }
         
@@ -66,10 +74,12 @@ final class DIContainer {
 }
 
 @propertyWrapper
-class Dependency<T> {
+final class Dependency<T> {
     let wrappedValue: T
     
     init() {
-        self.wrappedValue = DIContainer.shared.resolve()
+        // 앱 실행 시 isStub는 false, Test에서 true로 다시 register
+        let isStub: Bool = DIContainer.shared.resolve(name: "isStub")
+        self.wrappedValue = DIContainer.shared.resolve(name: isStub ? "stub" : nil)
     }
 }
