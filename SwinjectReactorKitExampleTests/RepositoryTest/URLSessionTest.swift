@@ -17,7 +17,6 @@ import Swinject
 class URLSessionTest: XCTestCase {
     
     var sut: ImageService!
-    var disposeBag: DisposeBag = .init()
     var container: Container!
     
     override func setUpWithError() throws {
@@ -25,12 +24,9 @@ class URLSessionTest: XCTestCase {
         container.register(Bool.self, name: "isStub") { resolver in
             return true
         }
-        
-        sut = .init()
-        XCTAssertNotNil(sut)
     }
-    
-    func 테스트_네트워크_통신_성공_200_sampleData() {
+
+    func test_네트워크_통신_성공_200_sampleData() {
 
         container.register(URLSessionType.self, name: "stub") { resolver in
             MockURLSession()
@@ -57,7 +53,7 @@ class URLSessionTest: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
     
-    func 테스트_네트워크_통신_실패_410_statusError() {
+    func test_네트워크_통신_실패_410_statusError() {
         container.register(URLSessionType.self, name: "stub") { resolver in
             MockURLSession(makeRequestFail: true)
         }
