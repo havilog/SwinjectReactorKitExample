@@ -15,8 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
-        let searchService: SearchServiceType = SearchService()
-        let searchReactor: SearchReactor = .init(searchService: searchService)
+        let searchReactor: SearchReactor = .init()
         
         let vc = SearchViewController(reactor: searchReactor)
         

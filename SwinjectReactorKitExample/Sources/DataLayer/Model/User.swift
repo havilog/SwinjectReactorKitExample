@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct User: Decodable {
+struct User: Codable {
     let total_count: Int
     let incomplete_results: Bool
     let items: [Item]
 }
 
 extension User {
-    struct Item: Decodable {
+    struct Item: Codable {
         let login: String
         let id: Int
         let node_id: String

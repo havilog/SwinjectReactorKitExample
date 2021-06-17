@@ -10,20 +10,31 @@ import RxSwift
 import RxTest
 import Nimble
 import RxNimble
+import Swinject
 
 @testable import SwinjectReactorKitExample
 
 class ImageServiceTest: XCTestCase {
     
     var sut: ImageService!
+    var container: Container!
 
     override func setUpWithError() throws {
-        sut = .init(session: MockURLSession())
+        self.container = DIContainer.shared.getContainter()
+        container.register(Bool.self, name: "isStub") { resolver in
+            return true
+        }
+        
+        container.register(URLSessionType.self, name: "stub") { resolver in
+            MockURLSession()
+        }
+        
+        sut = .init()
         XCTAssertNotNil(sut)
     }
     
-    func test_이미지_다운로드_Single_성공() {
-        var expectedResponse = ImageDownloadError.urlError
+    func test_이미지_다운로드_Single_url이_nil일때_성공() {
+        let expectedResponse = ImageDownloadError.urlError
         
         // when
         // url == nil
@@ -42,10 +53,13 @@ class ImageServiceTest: XCTestCase {
             // Observable을 catchError 안했을 때, onError로 sequence가 끝날 경우 first() 에서 error throw
             XCTAssertEqual(error as! ImageDownloadError, expectedResponse)
         }
-
+    }
+    
+    func test() {
         // when
         // self == nil
-        expectedResponse = .selfError
+        let expectedResponse = ImageDownloadError.selfError
+        
         do {
             _ = try sut.fetchImage(with: NetworkAPI.baseURLForTest)
                 .do(onSubscribe: { [weak self] in
@@ -57,11 +71,12 @@ class ImageServiceTest: XCTestCase {
             // then
             XCTAssertEqual(expectedResponse, error as! ImageDownloadError)
         }
-        
+    }
+    
+    func test2() {
         let expectedResult = NetworkAPI.sampleDataForTest
         // when
-        // 정상 url
-        sut = .init(session: MockURLSession())
+        // 정상 url 
         do {
             let result = try sut.fetchImage(with: NetworkAPI.baseURLForTest)
                 .toBlocking().first()
@@ -72,7 +87,6 @@ class ImageServiceTest: XCTestCase {
             XCTFail("try 문에서 error throw하면 안됨")
         }
     }
-    
 }
 
 // MARK: 연습용

@@ -10,6 +10,7 @@ import RxSwift
 import RxTest
 import Nimble
 import RxNimble
+import Swinject
 
 @testable import SwinjectReactorKitExample
 
@@ -17,13 +18,26 @@ class URLSessionTest: XCTestCase {
     
     var sut: ImageService!
     var disposeBag: DisposeBag = .init()
-
+    var container: Container!
+    
     override func setUpWithError() throws {
-        sut = .init(session: MockURLSession())
+        self.container = DIContainer.shared.getContainter()
+        container.register(Bool.self, name: "isStub") { resolver in
+            return true
+        }
+        
+        sut = .init()
         XCTAssertNotNil(sut)
     }
     
     func 테스트_네트워크_통신_성공_200_sampleData() {
+
+        container.register(URLSessionType.self, name: "stub") { resolver in
+            MockURLSession()
+        }
+        
+        sut = .init()
+        
         let expectation = XCTestExpectation()
         
         let response = NetworkAPI.sampleDataForTest
@@ -44,7 +58,11 @@ class URLSessionTest: XCTestCase {
     }
     
     func 테스트_네트워크_통신_실패_410_statusError() {
-        sut = .init(session: MockURLSession(makeRequestFail: true))
+        container.register(URLSessionType.self, name: "stub") { resolver in
+            MockURLSession(makeRequestFail: true)
+        }
+        
+        sut = .init()
         
         let expectation = XCTestExpectation()
         

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		400B3E5F265B4A4300E2377B /* SearchReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B3E5E265B4A4300E2377B /* SearchReactor.swift */; };
 		400B3E62265B5E6F00E2377B /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B3E61265B5E6F00E2377B /* DIContainer.swift */; };
+		401C3C87267B22D100F39D1C /* NetworkRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401C3C86267B22D100F39D1C /* NetworkRepositoryTest.swift */; };
+		401C3C89267B231D00F39D1C /* MockNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401C3C88267B231D00F39D1C /* MockNetworkRepository.swift */; };
 		405C9D9226579CFA00C33809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9D9126579CFA00C33809 /* AppDelegate.swift */; };
 		405C9D9426579CFA00C33809 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9D9326579CFA00C33809 /* SceneDelegate.swift */; };
 		405C9D9626579CFA00C33809 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9D9526579CFA00C33809 /* SearchViewController.swift */; };
@@ -61,6 +63,8 @@
 		3040F9A331C9E614DF159B49 /* Pods-SwinjectReactorKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwinjectReactorKitExample.debug.xcconfig"; path = "Target Support Files/Pods-SwinjectReactorKitExample/Pods-SwinjectReactorKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		400B3E5E265B4A4300E2377B /* SearchReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReactor.swift; sourceTree = "<group>"; };
 		400B3E61265B5E6F00E2377B /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		401C3C86267B22D100F39D1C /* NetworkRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepositoryTest.swift; sourceTree = "<group>"; };
+		401C3C88267B231D00F39D1C /* MockNetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkRepository.swift; sourceTree = "<group>"; };
 		405C9D8E26579CFA00C33809 /* SwinjectReactorKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwinjectReactorKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		405C9D9126579CFA00C33809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		405C9D9326579CFA00C33809 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				40A20E4E26799E9C00052D17 /* URLSessionTest.swift */,
+				401C3C86267B22D100F39D1C /* NetworkRepositoryTest.swift */,
 			);
 			path = RepositoryTest;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 				D49CCD172678621C001B7F2A /* MockURLSession.swift */,
 				40A20E522679A07000052D17 /* MockImageService.swift */,
 				40A20E572679C21200052D17 /* MockSearchService.swift */,
+				401C3C88267B231D00F39D1C /* MockNetworkRepository.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -630,10 +636,12 @@
 			files = (
 				D49CCD182678621C001B7F2A /* MockURLSession.swift in Sources */,
 				40A20E582679C21200052D17 /* MockSearchService.swift in Sources */,
+				401C3C87267B22D100F39D1C /* NetworkRepositoryTest.swift in Sources */,
 				40A20E5126799F8D00052D17 /* SearchServiceTest.swift in Sources */,
 				40A20E562679BB1500052D17 /* SearchReactorTest.swift in Sources */,
 				40A20E4F26799E9C00052D17 /* URLSessionTest.swift in Sources */,
 				40EC035C26774B3C00589C9D /* ImageServiceTest.swift in Sources */,
+				401C3C89267B231D00F39D1C /* MockNetworkRepository.swift in Sources */,
 				40A20E532679A07000052D17 /* MockImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
