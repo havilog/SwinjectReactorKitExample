@@ -1,6 +1,8 @@
 # SwinjectReactorKitExample
 
-This is a Demo App for `Swinject`
+This is a Demo App for `Swinject`, `Clean Architectue`, `ReactorKit` and `BDD`
+
+![image](https://user-images.githubusercontent.com/57659933/122357398-af66fd00-cf8e-11eb-99fe-bcc5c5d0020f.png)
 
 # Goal
 
