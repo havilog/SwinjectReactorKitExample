@@ -20,6 +20,7 @@
 		405C9DD62657A1F300C33809 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C9DD52657A1F300C33809 /* SearchService.swift */; };
 		40961D0726733FCB00E90193 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40961D0626733FCB00E90193 /* NetworkAPI.swift */; };
 		40961D0A267343F800E90193 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40961D09267343F800E90193 /* User.swift */; };
+		409FA246267C74CE00656E32 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409FA245267C74CE00656E32 /* R.generated.swift */; };
 		40A20E4F26799E9C00052D17 /* URLSessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A20E4E26799E9C00052D17 /* URLSessionTest.swift */; };
 		40A20E5126799F8D00052D17 /* SearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A20E5026799F8D00052D17 /* SearchServiceTest.swift */; };
 		40A20E532679A07000052D17 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A20E522679A07000052D17 /* MockImageService.swift */; };
@@ -80,6 +81,7 @@
 		405C9DD52657A1F300C33809 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		40961D0626733FCB00E90193 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		40961D09267343F800E90193 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		409FA245267C74CE00656E32 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		40A20E4E26799E9C00052D17 /* URLSessionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTest.swift; sourceTree = "<group>"; };
 		40A20E5026799F8D00052D17 /* SearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTest.swift; sourceTree = "<group>"; };
 		40A20E522679A07000052D17 /* MockImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		405C9DCE26579F0800C33809 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				409FA245267C74CE00656E32 /* R.generated.swift */,
 				40EC03592677363000589C9D /* progress_bar.json */,
 				40EC035726772F6500589C9D /* indicator.json */,
 				405C9D9A26579CFB00C33809 /* Assets.xcassets */,
@@ -366,6 +369,7 @@
 			buildConfigurationList = 405C9DB826579CFB00C33809 /* Build configuration list for PBXNativeTarget "SwinjectReactorKitExample" */;
 			buildPhases = (
 				26CFBF9A0D051FEA97A03B70 /* [CP] Check Pods Manifest.lock */,
+				409FA242267C730300656E32 /* ShellScript */,
 				405C9D8A26579CFA00C33809 /* Sources */,
 				405C9D8B26579CFA00C33809 /* Frameworks */,
 				405C9D8C26579CFA00C33809 /* Resources */,
@@ -547,6 +551,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwinjectReactorKitExampleTests/Pods-SwinjectReactorKitExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		409FA242267C730300656E32 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		528F5A3543F41F5495113C1D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -621,6 +644,7 @@
 				40EC03562677231600589C9D /* CacheStorage.swift in Sources */,
 				40EC03532676F9DE00589C9D /* ImageService.swift in Sources */,
 				400B3E5F265B4A4300E2377B /* SearchReactor.swift in Sources */,
+				409FA246267C74CE00656E32 /* R.generated.swift in Sources */,
 				405C9D9226579CFA00C33809 /* AppDelegate.swift in Sources */,
 				40961D0A267343F800E90193 /* User.swift in Sources */,
 				405C9DD62657A1F300C33809 /* SearchService.swift in Sources */,

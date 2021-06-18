@@ -23,6 +23,9 @@ target 'SwinjectReactorKitExample' do
   pod 'SnapKit'
   pod 'Then'
   
+  # Resource
+  pod 'R.swift'
+  
   # UI
   pod 'lottie-ios'
   

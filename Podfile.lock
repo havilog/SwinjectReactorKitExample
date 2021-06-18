@@ -15,6 +15,9 @@ PODS:
     - Swinject (~> 2.6)
     - SwinjectSafeAuto (~> 1.0)
   - Quick (4.0.0)
+  - R.swift (5.4.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
   - ReactorKit (2.1.1):
     - RxSwift (~> 5.0)
     - WeakMapTable (~> 1.1)
@@ -50,6 +53,7 @@ DEPENDENCIES:
   - Nimble
   - PureSwinject
   - Quick
+  - R.swift
   - ReactorKit
   - RxCocoa
   - RxNimble
@@ -69,6 +73,8 @@ SPEC REPOS:
     - Pure
     - PureSwinject
     - Quick
+    - R.swift
+    - R.swift.Library
     - ReactorKit
     - RxBlocking
     - RxCocoa
@@ -90,6 +96,8 @@ SPEC CHECKSUMS:
   Pure: 82d6f4438672a41d21ea6fadd126e1466db001c5
   PureSwinject: 0010f4069bd552cdc46a7be7d58481b22ced2fd3
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReactorKit: 6d894a20c3d508344320901cd8e386fde92df4b6
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -103,6 +111,6 @@ SPEC CHECKSUMS:
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 109112903d837a86912ac963103be7504f1a8e98
+PODFILE CHECKSUM: d68884cbdc72d13813fee8acdf5d54bd4a114919
 
 COCOAPODS: 1.10.1

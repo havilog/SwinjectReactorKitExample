@@ -33,7 +33,7 @@ final class SearchViewController: UIViewController {
     private let resultImageView: UIImageView = .init().then {
         $0.contentMode = .scaleAspectFit
     }
-    
+
     private let indicator: AnimationView = .init(name: "progress_bar").then {
         $0.contentMode = .scaleAspectFit
         $0.isHidden = true
@@ -62,7 +62,8 @@ final class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.resultImageView.image = UIImage(named: "initial_empty_image")
+        let temp = R.image.initial_empty_image()
+        self.resultImageView.image = temp
     }
 }
 
@@ -141,7 +142,7 @@ extension SearchViewController: View {
         
         reactor.state
             .map(\.searchAvartarImageData)
-            .map { $0 == nil ? UIImage(named: "no_url_image") : UIImage(data: $0!) }
+            .map { $0 == nil ? R.image.no_url_image() : UIImage(data: $0!) }
             .do(onNext: { _ in
                 self.indicator.isHidden = true
                 self.indicator.stop()
