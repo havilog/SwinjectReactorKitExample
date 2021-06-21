@@ -126,9 +126,9 @@ extension SearchViewController: View {
             .map { [weak self] in
                 return Reactor.Action.searchUser(id: self?.searchIDTextField.text ?? "")
             }
-            .do(onNext: { _ in
-                self.indicator.isHidden = false
-                self.indicator.play()
+            .do(onNext: { [weak self] _ in
+                self?.indicator.isHidden = false
+                self?.indicator.play()
             })
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -143,9 +143,9 @@ extension SearchViewController: View {
         reactor.state
             .map(\.searchAvartarImageData)
             .map { $0 == nil ? R.image.no_url_image() : UIImage(data: $0!) }
-            .do(onNext: { _ in
-                self.indicator.isHidden = true
-                self.indicator.stop()
+            .do(onNext: { [weak self] _ in
+                self?.indicator.isHidden = true
+                self?.indicator.stop()
             })
             .bind(to: resultImageView.rx.image)
             .disposed(by: disposeBag)
@@ -157,9 +157,9 @@ extension SearchViewController: View {
         
         reactor.errorResult
             .observeOn(MainScheduler.instance)
-            .do(onNext: { _ in
-                self.indicator.isHidden = true
-                self.indicator.stop()
+            .do(onNext: { [weak self] _ in
+                self?.indicator.isHidden = true
+                self?.indicator.stop()
             })
             .subscribe(onNext: {
                 print("error: ", $0)
@@ -167,4 +167,3 @@ extension SearchViewController: View {
             .disposed(by: disposeBag)
     }
 }
-

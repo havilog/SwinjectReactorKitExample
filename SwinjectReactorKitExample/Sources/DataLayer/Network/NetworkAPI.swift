@@ -113,7 +113,7 @@ extension NetworkAPI: TargetType {
         }
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         return ["User-Agent": "request"]
     }
 }

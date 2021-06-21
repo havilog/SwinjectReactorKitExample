@@ -10,7 +10,7 @@ target 'SwinjectReactorKitExample' do
   # DI
   pod 'Swinject'
   pod 'SwinjectSafeAuto'
-  pod 'PureSwinject'
+#  pod 'PureSwinject'
   
   # Architecture
   pod 'ReactorKit'

@@ -8,7 +8,7 @@
 import Foundation
 import Swinject
 import SwinjectSafeAuto
-import PureSwinject
+// import PureSwinject
 import Moya
 
 final class DIContainer {

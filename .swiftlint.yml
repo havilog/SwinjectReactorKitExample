@@ -1,0 +1,18 @@
+disabled_rules:
+- file_length
+- trailing_whitespace
+- identifier_name
+- force_try
+- unused_closure_parameter
+
+included:
+- SwinjectReactorKitExample
+
+excluded:
+- Pods
+- SwinjectReactorKitExample/Resources/R.generated.swift
+#- BringChuChubaTests
+#- BringChuChubaUITests
+
+line_length: 110
+function_body_length: 100

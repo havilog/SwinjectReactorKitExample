@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F48B8F3141E527587D1556AC"
-               BuildableName = "SwinjectReactorKitExample.app"
-               BlueprintName = "SwinjectReactorKitExample"
+               BlueprintIdentifier = "9B14BCD487BD843DDA349AA9"
+               BuildableName = "SwinjectReactorKitExampleTests.xctest"
+               BlueprintName = "SwinjectReactorKitExampleTests"
                ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -39,16 +39,6 @@
                ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A65E2F2080CA9E0975B426AD"
-               BuildableName = "SwinjectReactorKitExampleUITests.xctest"
-               BlueprintName = "SwinjectReactorKitExampleUITests"
-               ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -61,16 +51,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F48B8F3141E527587D1556AC"
-            BuildableName = "SwinjectReactorKitExample.app"
-            BlueprintName = "SwinjectReactorKitExample"
+            BlueprintIdentifier = "9B14BCD487BD843DDA349AA9"
+            BuildableName = "SwinjectReactorKitExampleTests.xctest"
+            BlueprintName = "SwinjectReactorKitExampleTests"
             ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -78,16 +67,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F48B8F3141E527587D1556AC"
-            BuildableName = "SwinjectReactorKitExample.app"
-            BlueprintName = "SwinjectReactorKitExample"
+            BlueprintIdentifier = "9B14BCD487BD843DDA349AA9"
+            BuildableName = "SwinjectReactorKitExampleTests.xctest"
+            BlueprintName = "SwinjectReactorKitExampleTests"
             ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

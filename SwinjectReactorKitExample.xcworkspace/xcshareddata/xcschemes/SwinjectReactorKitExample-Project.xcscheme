@@ -21,6 +21,34 @@
                ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9B14BCD487BD843DDA349AA9"
+               BuildableName = "SwinjectReactorKitExampleTests.xctest"
+               BlueprintName = "SwinjectReactorKitExampleTests"
+               ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A65E2F2080CA9E0975B426AD"
+               BuildableName = "SwinjectReactorKitExampleUITests.xctest"
+               BlueprintName = "SwinjectReactorKitExampleUITests"
+               ReferencedContainer = "container:SwinjectReactorKitExample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

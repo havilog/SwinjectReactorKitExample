@@ -1,0 +1,47 @@
+name: SwinjectReactorKitExample
+
+attributes:
+    ORGANIZATIONNAME: havi
+
+options:
+    deploymentTarget:
+    iOS: 14.5
+    defaultConfig: Release
+    indentWidth: 4
+    tabWidth: 4
+    
+    postGenCommand: pod install
+
+targets:
+    SwinjectReactorKitExample:
+        type: application
+        platform: iOS
+        sources: [SwinjectReactorKitExample]
+           
+        preBuildScripts:
+            - name: R.swift
+              script: |
+                "echo R.swift"
+        settings:
+            base:
+                INFOPLIST_FILE: SwinjectReactorKitExample/Supporting/Info.plist
+                PRODUCT_BUNDLE_IDENTIFIER: com.havi.SwinjectReactorKitExample
+
+    SwinjectReactorKitExampleTests:
+        type: bundle.unit-test
+        platform: iOS
+        settings:
+            base:
+                INFOPLIST_FILE: SwinjectReactorKitExampleTests/Info.plist
+                PRODUCT_BUNDLE_IDENTIFIER: com.havi.SwinjectReactorKitExampleTests
+        sources: [SwinjectReactorKitExampleTests]
+            
+        
+    SwinjectReactorKitExampleUITests:
+        type: bundle.ui-testing
+        platform: iOS
+        settings:
+            base:
+                INFOPLIST_FILE: SwinjectReactorKitExampleUITests/Info.plist
+                PRODUCT_BUNDLE_IDENTIFIER: com.havi.SwinjectReactorKitExampleUITests
+        sources: [SwinjectReactorKitExampleUITests]
