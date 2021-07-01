@@ -1,6 +1,6 @@
 # SwinjectReactorKitExample
 
-This is a Demo App for `Swinject`, `Clean Architectue`, `ReactorKit` and `BDD`
+This is a Demo App for `tuist`, `Swinject`, `Clean Architectue`, `ReactorKit` and `BDD`
 
 ![image](https://user-images.githubusercontent.com/57659933/122357398-af66fd00-cf8e-11eb-99fe-bcc5c5d0020f.png)
 
@@ -9,6 +9,7 @@ This is a Demo App for `Swinject`, `Clean Architectue`, `ReactorKit` and `BDD`
 1. 테스트 가능한 코드 구현을 위한 리액터킷 구조의 예제 구현
 2. Clean-Architecture 구조를 적용하여, Presentation Layer(뷰, 리액터), Business Layer(서비스), Core Layer(네트워크/데이터베이스, 엔티티) 분리 
 3. Quick, Nimble을 사용하여 테스트 코드 작성(BDD)
+4. tuist를 활용한 프로젝트 관리
 
 # Contributor
 
