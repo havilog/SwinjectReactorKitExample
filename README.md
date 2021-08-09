@@ -2,6 +2,10 @@
 
 This is a Demo App for `tuist`, `Swinject`, `Clean Architectue`, `ReactorKit` and `BDD`
 
+이 프로젝트를 실행시켜보려면 `tuist`를 깔고, generate해야함
+
+실행해도 별거는 없으니 코드만 보시는거 추천 드립니다! :)
+
 ![image](https://user-images.githubusercontent.com/57659933/122357398-af66fd00-cf8e-11eb-99fe-bcc5c5d0020f.png)
 
 # Goal
